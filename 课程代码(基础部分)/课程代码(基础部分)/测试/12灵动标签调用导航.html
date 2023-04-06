@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>[!--pagetitle--]</title>
+		<meta name="Keywords" content="[!--pagekeywords--]"/>
+		<meta name="Description" content="[!--pagedescription--]"/>
+		<style type="text/css">
+			a{text-decoration: none;color: #333;}
+		</style>
+	</head>
+	<body>
+
+<!--官方有导航的调用标签：带模板的栏目导航标签showclasstemp,需要配合标签模板使用-->
+<!--SQL查询语句调用一级栏目：
+	存放一级栏目的数据表：enewsclass
+	字段说明：
+		classname:栏目名称
+		classpath:栏目目录
+		bclassid:父栏目ID
+		classid:栏目ID-->
+
+<!--不调用指定栏目:
+	and classid<>2 :不调用栏目ID为2
+	and classid not in(2,3,4,5)不调用栏目ID为2,3,4,5-->
+		
+	<ul style="width: 800px;margin: 50px auto;">		
+		[e:loop={'select classpath,classname from [!db.pre!]enewsclass where bclassid=0 and classid !=6 order by classid limit 8',0,24,0}]
+		<li><a href="<?=$public_r[newsurl]?><?=$bqr['classpath']?>" title="<?=$bqr['classname']?>"><?=$bqr['classname']?></a></li>
+		[/e:loop]		
+	</ul>
+
+
+
+	</body>
+</html>

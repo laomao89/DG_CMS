@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<head>
+    <title>[!--pagetitle--]</title>
+   <title></title>
+    <link rel="stylesheet" type="text/css" href="/skin/static/css/head.css">
+    <link rel="stylesheet" type="text/css" href="/skin/static/css/neilun.css">
+    <script type="text/javascript" src="/skin/static/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="/skin/static/js/jquery.jslides.js"></script>
+    <script type="text/javascript" src="/skin/static/js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="/skin/static/js/SuperSlide.js"></script>
+<style>
+.ddd{
+    font-size: 14.6px;
+    color: #6d4321;
+}
+
+.ddd:hover {
+    background: #7e471b;
+    color: #fff;
+}
+</style>    
+</head>
+<body style="background:#f9f2e4;">
+<!-- 头部 -->
+<div class="head" style="background: #f9f2e4;">
+    <div class="dao_hang" >
+        <div class="auto">
+<!-- 导航开始 -->
+[!--temp.headernav--]
+<!-- 导航结束 -->
+        </div>
+    </div>
+
+<!--头部banner开始-->
+[!--temp.banner--]
+<!--头部banner结束-->
+    <!-- 内容开始 -->
+    <div class="auto auto2">
+        <div class="nei_left"  style="position:relative">
+            <p class="shou">
+            	<a href="[!--class.url--]">[!--class.name--]</a>
+            </p>
+   			 <p class="n_b_t">[!--title--]</p>
+            <p class="shi_j">来源： [!--befrom--]<span>时间：[!--newstime--]</span></p>
+            <p class="nr_nr">[!--newstext--]</p>
+            <div class="dix">
+               [!--info.pre--]
+               [!--info.next--]
+            </div>
+            
+        </div>
+
+        <div class="right">
+
+
+            <!-- 右边公共 -->
+[!--temp.sider--]
+            <!-- 右边公共结束 -->
+        </div>
+        <br class="qc"/>
+    </div>
+</div>
+
+
+<br class="qc"/>
+</div>
+
+
+<!-- 底部 -->
+[!--temp.footer--]
+<!-- 底部结束 -->
+
+
+</body>
+<script type="text/javascript">
+    // 左右翻页
+
+   $(".litu").click(function(){
+        $(this).addClass('xd').siblings().removeClass('xd');
+        console.log(url)
+        var url=$(".xd").html();
+        $('.datu').html(url)
+    })
+
+    $(".drg").click(function(){
+        $(".xd").next().addClass('xd').siblings().removeClass('xd');
+        var url=$(".xd").html();
+        $('.datu').html(url)
+
+    })
+
+    $(".dlt").click(function(){
+        $(".xd").prev().addClass('xd').siblings().removeClass('xd');
+        var url=$(".xd").html();
+        $('.datu').html(url)
+    })
+
+</script>
+
+
+</html>
+

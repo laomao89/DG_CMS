@@ -1,0 +1,8 @@
+修改e/class/connect.php
+搜索 function ReturnClassLink($classid)   大概2173行
+
+
+$string="<a href=\"".ReturnSiteIndexUrl()."\">".$fun_r['index']."</a>";:首页获取
+$public_r[navfh]:表示“>”
+$url:获取栏目链接
+$class_r[$r[$i]][classname]:获取栏目名称

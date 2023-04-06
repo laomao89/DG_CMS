@@ -1,0 +1,84 @@
+1.公共模板变量
+公共模板变量是指将模板中相同内容部分存放到变量里，方便在各个模板调用与统一修改。
+像模板中用到的“[!--temp.*--]”就是公共模板变量。
+对比发现首页和封面页，拥有一样的头部和尾部，头部和尾部就可以提取为公共模板变量
+
+
+
+
+2. 封面模板
+非终极栏目页面的两种形式选择：一般使用封面式
+1、封面式：选择封面式，然后选择封面模板。可以制作跟首页一模一样的封面页面。
+2、列表式：可选择列表式，然后选择列表模板。显示同终极栏目一样的列表页。
+
+<!--在封面页中，需要获取栏目中，各子栏目，以及子栏目数据，相当于双层循环。-->
+<!--循环子栏目数据标签和标签模板配合-->
+[listsonclass]'selfinfo',5,32,0,0,7,0,0[/listsonclass]
+
+页面模板内容(外层循环)
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="title">
+<tr>
+<td><strong>[!--the.classname--]</strong></td>
+<td align="right"><a href="[!--the.classurl--]">更多&gt;&gt;</a></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+<tr>
+<td><ul>
+       [!--empirenews.listtemp--]
+       <!--list.var1-->
+       [!--empirenews.listtemp--]
+</ul>
+</td>
+</tr>
+</table>
+
+
+列表内容模板(内层循环)
+<li><a href="[!--titleurl--]" title="[!--oldtitle--]">[!--title--]</a> <span>[!--newstime--]</span></li>
+
+
+
+5.列表页模板
+页面模板内容：列表头[!--empirenews.listtemp--]列表内容[!--empirenews.listtemp--]列表尾
+页面模板格式举列：<table>[!--empirenews.listtemp--]<tr><td><!--list.var1--></td><td><!--list.var2--></td></tr>[!--empirenews.listtemp--]</table>(每次显示2条记录)
+列表内容模板：即”页面模板内容”中”<!--list.var*-->”标签显示的内容．
+
+列表内容模板(list.var)
+<li><a href="[!--titleurl--]" title="[!--oldtitle--]">[!--title--]</a> <span>[!--newstime--]</span></li>
+
+4 内容页模板
+
+
+
+5 灵动标签调用相关信息
+标题包含关键字
+①、比较粗糙的匹配，可能不太精确：title like '%$navinfor[keyboard]%'
+②、精确的匹配，比较消耗资源：title regexp '(^|,)$navinfor[keyboard]($|,)'
+关键字相同
+①、比较粗糙的匹配，可能不太精确：keyboard like '%$navinfor[keyboard]%'
+②、精确的匹配，比较消耗资源：keyboard regexp '(^|,)$navinfor[keyboard]($|,)'
+
+[e:loop={"select * from phome_ecms_news where title like '%$navinfor[keyboard]%' or keyboard like '%$navinfor[keyboard]%' order by id desc limit 10",0,24,0}] [/e:loop]
+
+内容模板变量说明：
+字段值数组：$navinfor
+调用方法：$navinfor[字段名]，比如要显示＂信息ID字段＂，那在模板里用：<?=$navinfor[id]?>即可输出(要开启模板支持程序代码)
+
+让标签参数支持系统变量说明：以实现按各种条件调用信息数据。
+根据程序扩展变量的说明得出我们可以在标签参数中直接使用“字段值数组”变量。
+
+例如：我们要列出所有信息来源相同的10条信息，标签如下(按sql语句调用)：
+[phomenews]"select * from phome_ecms_news where?befrom='".$navinfor[befrom]."'?order by id desc limit 10",10,32,0,24,0[/phomenews]
+附加说明：$navinfor[字段名]
+
+9、帝国CMS程序扩展变量说明
+程序扩展变量说明：通过这些变量可实现各种更复杂的系统．
+1、列表/封面模板变量说明：
+当前栏目id：$GLOBALS[navclassid]
+通过这个变量可以输出这个栏目id的所有数据（如：select * from phome_enewsclass where classid='$GLOBALS[navclassid]'）
+2、内容模板变量说明：
+字段值数组：$navinfor
+
+调用方法：$navinfor[字段名]，比如要显示＂信息ID字段＂，那在模板里用：<?=$navinfor[id]?>即可输出(要开启模板支持程序代码)
+

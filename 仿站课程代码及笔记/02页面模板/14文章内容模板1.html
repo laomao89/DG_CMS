@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<head>
+    <title>[!--pagetitle--]</title>
+   <title></title>
+    <link rel="stylesheet" type="text/css" href="/skin/static/css/head.css">
+    <link rel="stylesheet" type="text/css" href="/skin/static/css/neilun.css">
+    <script type="text/javascript" src="/skin/static/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="/skin/static/js/jquery.jslides.js"></script>
+    <script type="text/javascript" src="/skin/static/js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="/skin/static/js/SuperSlide.js"></script>
+<style>
+.ddd{
+    font-size: 14.6px;
+    color: #6d4321;
+}
+
+.ddd:hover {
+    background: #7e471b;
+    color: #fff;
+}
+</style>    
+</head>
+<body style="background:#f9f2e4;">
+<!-- 头部 -->
+<div class="head" style="background: #f9f2e4;">
+    <div class="dao_hang" >
+        <div class="auto">
+<!-- 导航开始 -->
+[!--temp.headernav--]
+<!-- 导航结束 -->
+        </div>
+    </div>
+
+<!--头部banner开始-->
+[!--temp.banner--]
+<!--头部banner结束-->
+    <!-- 内容开始 -->
+    <div class="auto auto2">
+        <div class="nei_left">
+            <p class="shou">
+            	<a href="[!--class.url--]">[!--class.name--]</a>
+            </p>
+           <p class="yu_yin">
+	 <span class="yuyan">
+	 	<?php
+	 		$yp = explode('||||||',$navinfor[moreyp]);
+	 	?>	
+		 <a href="javascript:void(0);" onclick="playSound('<?=$yp[0]?>')">中 文</a>
+		 <a href="javascript:void(0);" onclick="playSound('<?=$yp[1]?>')">English</a>
+		 <a href="javascript:void(0);" onclick="playSound('<?=$yp[2]?>')">한국어</a>
+     </span>
+
+                <audio
+                        background="/skin/static/images/yydl2.jpg"
+                        id="audio" style="width: 100%;display:none">
+                    Your browser does not support the audio tag.
+                </audio>
+                <span class="bf"><a href="#"><img src="/skin/static/images/pf.png">语音讲解</a></span>
+                文昌宫
+            </p>
+
+ 	 	<?php
+	 		$tp = explode('||||||',$navinfor[moretp]);
+	 	?>	 
+
+            <div class="datu"><img class="datu" src="<?=$tp[0]?>"></div>
+            <div class="hhh">
+                <ul class="xiaotu">
+                    <div class="hddd">
+                    	<?php
+                    		for($i=0;$i<count($tp);$i++){
+                    			if($i==0){
+                    				$class=' class="litu xd"';
+                    			}else{
+                    				$class=' class="litu"';
+                    			}
+                    			$tplist .='<li'.$class.'><img src="'.$tp[$i].'"></li>';		
+                    		}
+                    		echo $tplist;
+                    	?>
+
+                    </div>
+                </ul>
+                <br class="qc"/>
+                <div class="rele">
+                    <img class="dlt" src="/skin/static/images/left.png">
+                    <img class="drg" src="/skin/static/images/right.png">
+                </div>
+            </div>
+
+			<p class="nero">[!--newstext--]</p>
+
+
+            <div class="dix">
+               [!--info.pre--]
+               [!--info.next--]
+            </div>
+            
+        </div>
+
+        <div class="right">
+
+
+            <!-- 右边公共 -->
+[!--temp.sider--]
+            <!-- 右边公共结束 -->
+        </div>
+        <br class="qc"/>
+    </div>
+</div>
+
+
+<br class="qc"/>
+</div>
+
+
+<!-- 底部 -->
+[!--temp.footer--]
+<!-- 底部结束 -->
+
+
+</body>
+<script type="text/javascript">
+    // 左右翻页
+    $(".litu").click(function(){
+        $(this).addClass('xd').siblings().removeClass('xd');
+        dz()
+    })
+    $(".drg").click(function(){
+        $(".xd").next().addClass('xd').siblings().removeClass('xd');
+        dz()
+    })
+    $(".dlt").click(function(){
+        $(".xd").prev().addClass('xd').siblings().removeClass('xd');
+        dz()
+
+    })
+
+    function dz(){
+        var url=$(".xd").html();
+        $('.datu').html(url)
+        var xdle=$('.xd').index()
+        var xle=$('.litu').length
+        if(xdle>=3){
+            var lll=0-((xdle-3)*97)
+            $('.hddd').animate({marginLeft:lll+'px'});
+        }
+        if(xdle<=3){
+            $('.hddd').animate({marginLeft:'0px'});
+        }
+    }
+
+
+    //初始化各个控件
+    
+    document.getElementById("audio").src = "<?=$yp[0]?>";
+    document.getElementById("audio").play();
+
+
+    function playSound(aid) {
+        document.getElementById("audio").src = aid;
+        document.getElementById("audio").play();
+        isPlay = true;
+    }
+</script>
+
+
+</html>
+

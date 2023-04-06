@@ -1,0 +1,14 @@
+1.修改e/class/connect.php文件，找到ReturnPinyinFun函数，更改成以下代码(大约4534行)：
+
+//修正后返回拼音
+function ReturnPinyinFun($hz){
+    global $ecms_config;
+    include_once(ECMS_PATH.'e/class/pinyin.php');
+    $py = new PinYin();
+    $all_py = $py->get_all_py(trim($hz));
+    return join('',$all_py);
+}
+
+
+2.将附件pinyin.php复制到e/class目录下。
+上传到课程附件中，同学们自行下载

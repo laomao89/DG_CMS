@@ -1,0 +1,26 @@
+打开 /e/search/result/index.php 文件
+
+查找：
+require("../../class/connect.php");
+require("../../class/db_sql.php");
+require("../../data/dbcache/class.php");
+require("../../class/q_functions.php");
+require "../".LoadLang("pub/fun.php");
+
+修改成：
+require('../../class/connect.php');
+require('../../class/db_sql.php');
+require('../../class/functions.php');
+require('../../class/t_functions.php');
+require('../../data/dbcache/class.php');
+require "../".LoadLang("pub/fun.php");
+
+
+
+接着查找：
+//替换公共模板变量
+$listtemp=$tempr[temptext];
+
+在上面添加以下代码：
+//页面支持标签
+$tempr[temptext]=DtNewsBq('list'.$tempid,$tempr[temptext],0);

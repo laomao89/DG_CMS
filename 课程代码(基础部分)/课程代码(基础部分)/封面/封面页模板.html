@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8" />
+<title>[!--pagetitle--]</title>
+<meta name="keywords" content="[!--pagekey--]" />
+<meta name="description" content="[!--pagedes--]" />
+<link href="[!--news.url--]skin/default/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="[!--news.url--]skin/default/js/tabs.js"></script>
+</head>
+<body class="channle">
+<!-- 页头 -->
+[!--temp.header--]
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+<tr valign="top">
+<td class="news_list"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="position">
+<tr>
+<td>您当前的位置：[!--newsnav--]</td>
+</tr>
+</table>
+
+<!--在封面页中，需要获取栏目中，各子栏目，以及子栏目数据，相当于双层循环-->
+<!--循环子栏目数据标签和标签模板配合-->
+[listsonclass]'selfinfo',5,32,0,0,14,0,0,0,32,0,0[/listsonclass]
+</td>
+<td class="sider"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="title">
+<tr>
+<td><strong>推荐资讯</strong></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="8" cellpadding="0" class="box">
+<tr>
+<td><table width=100% border=0 cellpadding=3 cellspacing=0>
+	<tr>
+[e:loop={'selfinfo',2,2,1}]
+		<td align=center><a href='<?=$bqsr['titleurl']?>' target=_blank><img src='<?=$bqr['titlepic']?>' width='128' height='90' border=0 alt='<?=$bqr['title']?>'><br><span style='line-height:15pt'><?=esub($bqr['title'],18)?></span></a></td>
+[/e:loop]				
+	</tr>
+	<tr>
+[e:loop={'selfinfo','2,2',2,1}]
+		<td align=center><a href='<?=$bqsr['titleurl']?>' target=_blank><img src='<?=$bqr['titlepic']?>' width='128' height='90' border=0 alt='<?=$bqr['title']?>'><br><span style='line-height:15pt'><?=esub($bqr['title'],18)?></span></a></td>
+[/e:loop]			
+	</tr></table></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="title margin_top">
+<tr>
+<td><strong>最后更新</strong></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+<tr>
+<td><ul>
+[e:loop={'selfinfo',10,0,0}]
+<li><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=esub($bqr['title'],30)?></a></li>
+[/e:loop]	
+</ul></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="title margin_top">
+<tr>
+<td><strong>热门点击</strong></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+<tr>
+<td><ol class="rank">
+[e:loop={'selfinfo',10,1,0}]
+<li class="no<?=$bqno?>"><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=esub($bqr['title'],30)?></a></li>
+[/e:loop]	
+</ol></td>
+</tr>
+</table></td>
+</tr>
+</table>
+<!-- 页脚 -->
+[!--temp.footer--]
+</body>
+</html>

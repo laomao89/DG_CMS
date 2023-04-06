@@ -1,0 +1,5 @@
+<script type="text/javascript">
+	[e:loop={"select classpath from [!db.pre!]enewsclass where bclassid=$GLOBALS[navclassid] order by classid asc limit 1,1",1,24,0}]
+		window.location.href='/<?=$bqr[classpath]?>/';
+	[/e:loop]			
+</script>

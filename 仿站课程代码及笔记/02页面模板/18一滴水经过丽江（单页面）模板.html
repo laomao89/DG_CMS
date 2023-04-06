@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<head>
+    <title>[!--pagetitle--]</title>
+   <title></title>
+    <link rel="stylesheet" type="text/css" href="/skin/static/css/head.css">
+    <link rel="stylesheet" type="text/css" href="/skin/static/css/neilun.css">
+    <script type="text/javascript" src="/skin/static/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="/skin/static/js/jquery.jslides.js"></script>
+    <script type="text/javascript" src="/skin/static/js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="/skin/static/js/SuperSlide.js"></script>
+<style>
+.ddd{
+    font-size: 14.6px;
+    color: #6d4321;
+}
+
+.ddd:hover {
+    background: #7e471b;
+    color: #fff;
+}
+</style>    
+</head>
+<body style="background:#f9f2e4;">
+<!-- 头部 -->
+<div class="head" style="background: #f9f2e4;">
+    <div class="dao_hang" >
+        <div class="auto">
+<!-- 导航开始 -->
+[!--temp.headernav--]
+<!-- 导航结束 -->
+        </div>
+    </div>
+
+<!--头部banner开始-->
+<div class="zhleft">
+    <img src="https://www.ljgc517.com/u/cms/www/201903/26153936wg7m.jpg"  height='384px'>
+</div>
+<!--头部banner结束-->
+    <!-- 内容开始 -->
+    <div class="auto auto2">
+        <div class="nei_left" style="position:relative">
+            <p class="shou">
+            	<a href="/NEWS/">古城动态</a>
+            </p>
+ 			<p class="n_b_t">一滴水经过丽江</p>
+            <p class="shi_j">来源：阿来<span>时间：2018-09-27 22:19:12</span></p>
+            <div class="nr_nr">
+            	<audio controls="controls" height="100" width="100" src="https://www.ljgc517.com/u/cms/www/201809/281332525g9u.ogg"></audio>
+            	<div style="text-align: center">
+            		<img alt="" src="/dym/img/1809054690kj.jpg" style="width: 740px; height: 3815px;" /><br />
+					<img alt="" src="/dym/img/28123116abkp.jpg" style="width: 740px; height: 2369px" />
+            	</div>
+            	<div style="text-align: center">
+					<video controls="controls" src="https://www.ljgc517.com/ljgcapp/u/cms/www/201809/189929.mp4" width="99%">
+					your browser does not support the video tag
+					</video>
+				</div>            
+            </div>
+                        
+        </div>
+
+        <div class="right">
+
+
+            <!-- 右边公共 -->
+[!--temp.sider--]
+            <!-- 右边公共结束 -->
+        </div>
+        <br class="qc"/>
+    </div>
+</div>
+
+
+<br class="qc"/>
+</div>
+
+
+<!-- 底部 -->
+[!--temp.footer--]
+<!-- 底部结束 -->
+
+
+</body>
+<script type="text/javascript">
+    // 左右翻页
+    $(".litu").click(function(){
+        $(this).addClass('xd').siblings().removeClass('xd');
+        console.log(url)
+        var url=$(".xd").html();
+        $('.datu').html(url)
+    })
+
+    $(".drg").click(function(){
+        $(".xd").next().addClass('xd').siblings().removeClass('xd');
+        var url=$(".xd").html();
+        $('.datu').html(url)
+
+    })
+
+    $(".dlt").click(function(){
+        $(".xd").prev().addClass('xd').siblings().removeClass('xd');
+        var url=$(".xd").html();
+        $('.datu').html(url)
+    })
+    
+
+</script>
+
+
+</html>
+

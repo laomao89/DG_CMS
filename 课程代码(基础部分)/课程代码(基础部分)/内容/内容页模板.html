@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8" />
+<title>[!--pagetitle--]</title>
+<meta name="keywords" content="[!--pagekey--]" />
+<meta name="description" content="[!--pagedes--]" />
+<link href="[!--news.url--]skin/default/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="[!--news.url--]skin/default/js/tabs.js"></script>
+<script type="text/javascript" src="/e/data/js/ajax.js"></script>
+</head>
+
+<body class="showpage news">
+<!-- 页头 -->
+[!--temp.header--]
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+<tr valign="top">
+<td class="main"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="position">
+<tr>
+<td>您当前的位置：[!--newsnav--]</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+<tr>
+<td><table width="100%" border="0" cellpadding="0" cellspacing="0" class="title_info">
+<tr>
+<td><h1>[!--title--]</h1></td>
+</tr>
+<tr>
+<td class="info_text">时间：[!--newstime--]&nbsp;&nbsp;来源：[!--befrom--]&nbsp;&nbsp;作者：[!--writer--]</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td id="text">[!--newstext--]</td>
+</tr>
+</table>
+
+<!--顶的调用方法，结构和样式自己修改-->
+<!--第一步：在模板里引用JS代码：
+<script type="text/javascript" src="[!--news.url--]skin/default/js/tabs.js"></script>
+<script type="text/javascript" src="[!--news.url--]e/data/js/ajax.js"></script>
+第二步：设置显示顶数量的ID为diggnum
+<span id="diggnum">
+	<script src="[!--news.url--]e/public/ViewClick/?classid=[!--classid--]&id=[!--id--]&down=5"></script>
+</span>
+第三步：添加顶的链接代码：
+<a href="JavaScript:makeRequest('[!--news.url--]e/public/digg/?classid=[!--classid--]&id=[!--id--]&dotop=1&doajax=1&ajaxarea=diggnum','EchoReturnedText','GET','');">顶一下</a>-->
+
+
+
+<table border="0" align="center" cellpadding="0" cellspacing="8">
+<tr>
+<td><table border="0" align="center" cellpadding="0" cellspacing="0" class="digg">
+<tr>
+<td class="diggnum" id="diggnum"><strong><script type="text/javascript" src="[!--news.url--]e/public/ViewClick/?classid=[!--classid--]&id=[!--id--]&down=5"></script></strong></td>
+</tr>
+<tr>
+<td class="diggit"><a href="JavaScript:makeRequest('[!--news.url--]e/public/digg/?classid=[!--classid--]&id=[!--id--]&dotop=1&doajax=1&ajaxarea=diggnum','EchoReturnedText','GET','');">来顶一下</a></td>
+</tr>
+</table></td>
+<td><table border="0" align="center" cellpadding="0" cellspacing="0" class="digg">
+<tr>
+<td valign="middle" class="diggnum"><strong><a href="/"><img src="/skin/default/images/back.gif" alt="返回首页" width="12" height="13" border="0" align="absmiddle" /></a></strong></td>
+</tr>
+<tr>
+<td class="diggit"><a href="[!--news.url--]">返回首页</a></td>
+</tr>
+</table></td>
+</tr>
+</table>
+          </td>
+</tr>
+</table>
+<!--评论-->
+[!--temp.pl--]
+</td>
+<td class="sider"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="title">
+<tr>
+<td><strong>推荐资讯</strong></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="8" cellpadding="0" class="box">
+<tr>
+<td><table width=100% border=0 cellpadding=3 cellspacing=0>
+	<tr>
+[e:loop={'selfinfo',2,2,1}]
+		<td align=center><a href='<?=$bqsr['titleurl']?>' target=_blank><img src='<?=$bqr['titlepic']?>' width='128' height='90' border=0 alt='<?=$bqr['title']?>'><br><span style='line-height:15pt'><?=esub($bqr['title'],18)?></span></a></td>
+[/e:loop]				
+	</tr>
+	<tr>
+[e:loop={'selfinfo','2,2',2,1}]
+		<td align=center><a href='<?=$bqsr['titleurl']?>' target=_blank><img src='<?=$bqr['titlepic']?>' width='128' height='90' border=0 alt='<?=$bqr['title']?>'><br><span style='line-height:15pt'><?=esub($bqr['title'],18)?></span></a></td>
+[/e:loop]			
+	</tr></table></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="title margin_top">
+<tr>
+<td><strong>相关文章</strong></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+<tr>
+<td><ul>
+	<!--$navinfor数组表示当前内容页面的信息，$navinfor[字段].在标签参数中使用-->
+	
+[e:loop={'news',5,18,0,"title like '%$navinfor[keyboard]%'"}]
+<li><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=esub($bqr['title'],30)?></a></li>
+[/e:loop]		
+
+
+</ul></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="title margin_top">
+<tr>
+<td><strong>栏目更新</strong></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+<tr>
+<td><ul>
+    [e:loop={'selfinfo',10,0,0}]
+<li><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=esub($bqr['title'],30)?></a></li>
+[/e:loop]	
+</ul></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="title margin_top">
+<tr>
+<td><strong>栏目热门</strong></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+<tr>
+<td>
+<ol class="rank">
+[e:loop={'selfinfo',10,1,0}]
+<li class="no<?=$bqno?>"><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=esub($bqr['title'],30)?></a></li>
+[/e:loop]	
+</ol>	
+</td>
+</tr>
+</table></td>
+</tr>
+</table>
+<!-- 页脚 -->
+[!--temp.footer--]
+<script src="/e/public/onclick/?enews=donews&classid=34&id=69"></script></body>
+</html>

@@ -1,0 +1,31 @@
+帝国cms让listshowclass标签也可以调用栏目别名
+
+通过修改e/class/t_functions.php文件的以下几个地方
+循环栏目导航标签
+function sys_ForShowSonClass($classid,$tempid,$show=0,$cline=0){
+...
+$sql=$empire->query("select classid,classname,bname,islast,sonclass,tbname,intro,classimg from {$dbtbpre}enewsclass where ".$where." and showclass=0 order by myorder,classid".$limit);(这里加了bname 目的调用父栏目别名)
+...
+
+栏目导航标签－循环
+
+...
+//替换变量
+$listtemp=str_replace("[!--bclassname--]",$bcr[classname],$listtemp);
+$listtemp=str_replace("[!--bbname--]",$bcr[bname],$listtemp);//这里加了这一行 标签里用[!--bbname--]调用父栏目别名
+.....
+$sql=$empire->query("select classid,classname,bname,islast,sonclass,tbname,intro,classimg from {$dbtbpre}enewsclass where bclassid='$bclassid' and showclass=0 order by myorder,classid");//这里同样加了bname 目的调用子栏目别名
+...
+
+替换栏目导航标签
+
+function ReplaceShowClassVars($no,$listtemp,$r,$num,$ecms=0,$subnews=0){
+...
+//栏目名称
+$listtemp=str_replace("[!--classname--]",$r[classname],$listtemp);
+//栏目别名
+$listtemp=str_replace("[!--bname--]",$r[bname],$listtemp);//加了这句标签模板里用[!--bname--]调用子栏目别名
+
+========================================
+[!--bbname--]调用父栏目别名
+[!--bname--]调用子栏目别名

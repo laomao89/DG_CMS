@@ -1,0 +1,62 @@
+帝国cms7.5在php7环境中出错的处理：
+一、登陆后台空白：
+1.全新安装帝国CMS时：
+	只需安装时“MYSQL接口类型”选择“mysqli”即可支持PHP7系列。
+	
+2.已经安装好帝国CMS换PHP7.*运行环境时：
+	修改配置文件“/e/config/config.php”
+	将“$ecms_config['db']['usedb']='mysql';”
+	修改为“$ecms_config['db']['usedb']='mysqli';”
+	注意事项：UTF8文件不能用记事本修改文件，否则会将文件转为GBK编码
+
+
+
+二、功能模块出错：
+
+全站搜索搜不到任何数据
+支付时报错，调试错误，请回到请求来源地，重新发起请求
+修改编码转换文件：e/class/doiconv.php
+
+1.查找    
+function Chinese($dir='./')
+{
+   $this->config['codetable_dir'] = $dir."../data/codetable/";
+}
+修改为  
+function __construct($dir='./')
+{
+   $this->config['codetable_dir'] = ECMS_PATH."e/data/codetable/";
+}
+
+2.查找   /* 如果编码相同，直接返回 */
+if ($source_lang == $target_lang || $source_string == '')
+{
+   return $source_string;
+}
+在其后添加：
+return mb_convert_encoding($source_string,$target_lang,$source_lang);
+
+3.查找   while(list($key,$value)=each($tmp))
+全部替换为：foreach($tmp as $key=>$value)
+
+
+
+
+
+邮件发送模块：会员注册,重发激活邮件,找回密码,发送邮件均报错
+修改邮件文件：e/class/class.smtp.php
+附改好的文件
+
+1.查找：  function SMTP() {
+修改为：  function __construct() {
+
+2.查找：  while(list(,$line) = @each($lines)) {
+
+修改为：  foreach($lines as $line){
+
+3.查找：  while(list(,$line_out) = @each($lines_out)) {
+
+修改为：  foreach($lines_out as $line_out){
+
+4.查找：  while(list(,$l) = @each($entries)) {
+修改为：  foreach ($entries as $l){

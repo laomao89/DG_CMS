@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>[!--pagetitle--]</title>
+		<meta name="Keywords" content="[!--pagekeywords--]"/>
+		<meta name="Description" content="[!--pagedescription--]"/>
+		<style type="text/css">
+			a{text-decoration: none;color: #333;}
+		</style>
+	</head>
+	<body>
+
+<!--模板内容为PHP代码，可以使用php所有处理函数。使用本标签，需开启模板支持程序代码(参数设置)。 
+	<?php ?>：长标签
+	<? ?>：短标签
+	<?=$bqr['title']?>等同于<?php echo $bqr['title']; ?>-->
+
+<!--常用函数介绍
+	文字截取：esub(字符串,截取长度)，例子：esub($bqr[title],30)截取标题前30个字符
+	时间格式：date('格式字串',时间字段)，例子：date('Y-m-d H:i:s',$bqr[newstime])时间显示格式为"2008-10-01"-->
+
+
+	<ul style="width: 800px;margin: 100px auto;">		
+		[e:loop={2,11,0,0}]
+		<li>
+			<a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=esub($bqr['title'],30)?></a>
+			发布时间：<?=date('H:i:s',$bqr['newstime'])?>
+		</li>
+		[/e:loop]		
+	</ul>	
+	</body>
+</html>

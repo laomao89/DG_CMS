@@ -1,0 +1,5 @@
+<div class="timg" align="center">
+[e:loop={"select classimg from [!db.pre!]enewsclass where classid=$GLOBALS[navclassid]",1,24,0}]
+	<img src="<?=$bqr[classimg]?>"  height='384px'/>
+[/e:loop]
+</div>

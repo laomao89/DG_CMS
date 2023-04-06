@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+<div style="width: 600px;margin: 20px auto;">	
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="position">
+	<tr>
+		<td>您当前的位置：[!--newsnav--]</td>
+	</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+	<tr>
+		<td>
+			<table width="100%" border="0" cellpadding="3" cellspacing="2">
+				<tr>
+					<td colspan="2" bgcolor="#F4F9FD">&nbsp;&nbsp;<strong>商品基本信息</strong></td>
+				</tr>
+				<tr>
+					<td width="30%" align="center" class="titlepic">
+						<a href="[!--productpic--]" title="预览大图" target="_blank"><img height="128" src="[!--titlepic--]" width="128" border="0" /></a>
+					</td>
+					<td>
+						<table width="100%" border="0" cellpadding="3" cellspacing="2">
+							<tr>
+								<td style="font-size: 14px;"><strong>商品名称：[!--title--]</strong></td>
+							</tr>
+							<tr>
+								<td>市场价：<span class="tprice">￥[!--tprice--]</span>&nbsp;优惠价：<span class="price">￥[!--price--]</span>&nbsp; </td>
+							</tr>
+							<tr>
+								<td>商品编号:[!--productno--]</td>
+							</tr>
+							<tr>
+								<td>商品品牌:[!--pbrand--]</td>
+							</tr>
+							<tr>
+								<td>计量单位:[!--unit--]</td>
+							</tr>
+							<tr>
+								<td>商品重量:[!--weight--]</td>
+							</tr>
+							
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" bgcolor="#F4F9FD">&nbsp;&nbsp;<strong>商品介绍</strong></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<table width="100%" border="0" cellpadding="0" cellspacing="8">
+							<tr>
+								<td id="text">[!--newstext--]</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+			
+
+<form action="/e/ShopSys/AddDd.php" method="post" name="myorder">
+	<!--购买流程-->
+	<input type="hidden" name="enews" value="AddDd">
+	<!--栏目id-->
+	<input type="hidden" name="classid" value="[!--classid--]">
+	<!--商品id-->
+	<input type="hidden" name="id" value="[!--id--]">
+	<!--支付方式-->
+	<input type="hidden" name="payfsid" value='3'>
+	
+	商品数量：<input type="number" name="pn" value="1"/><br /><br />
+	收货人：<input type="text" name="truename" value=""/><br /><br />
+	手机号：<input type="text" name="phone" value=""/><br /><br />
+	
+	<input type="submit" value="提交订单"/>
+</form>			
+			
+			
+	
+</div>			
+		
+	</body>
+</html>

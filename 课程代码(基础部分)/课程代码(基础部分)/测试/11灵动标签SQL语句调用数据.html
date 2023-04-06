@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>[!--pagetitle--]</title>
+		<meta name="Keywords" content="[!--pagekeywords--]"/>
+		<meta name="Description" content="[!--pagedescription--]"/>
+		<style type="text/css">
+			a{text-decoration: none;color: #333;}
+		</style>
+	</head>
+	<body>
+
+
+<!--
+SQL查询语句:	
+select 字段 from 表名 where 条件 order by 排序 limit 条数
+		字段:多个字段用‘,’隔开，全部字段用‘*’表示
+		表名: [!db.pre!]表示通用的表前缀
+		条件: 用and或or结合多个条件
+		排序:  ASC升序   DESC降序    只写字段时，默认按升序
+		条数:  可使用偏移量
+		
+操作类型:使用SQL查询语句作为第1个参数时,第3个参数操作类型一定为24,其它参数没有意义		
+-->
+
+
+
+
+
+
+		
+	<ul style="width: 800px;margin: 50px auto;">		
+		[e:loop={2,5,0,0}]
+		<li><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=$bqr['title']?></a></li>
+		[/e:loop]		
+	</ul>
+
+	<ul style="width: 800px;margin: 50px auto;">		
+		[e:loop={'select * from [!db.pre!]ecms_news where ispic=1 order by newstime desc limit 5',0,24,0}]
+		<li><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=$bqr['title']?></a></li>
+		[/e:loop]		
+	</ul>
+
+
+	</body>
+</html>

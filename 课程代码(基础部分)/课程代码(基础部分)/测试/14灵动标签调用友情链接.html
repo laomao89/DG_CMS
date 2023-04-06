@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>[!--pagetitle--]</title>
+		<meta name="Keywords" content="[!--pagekeywords--]"/>
+		<meta name="Description" content="[!--pagedescription--]"/>
+		<style type="text/css">
+			a{text-decoration: none;color: #333;}
+		</style>
+	</head>
+	<body>
+
+<!--官方有友情链接的调用标签：phomelink  参数：每行显示数,显示总数,操作类型,分类id,是否显示原链接-->
+<!--帝国的友情链接调用标签生成出来的代码是Table的，不符合标准-->
+
+<!--QL查询语句调用友情链接：-->
+	<!--存放友情链接的数据表：enewslink-->
+	<!--字段说明：
+		lname:站点名称
+		lurl:站点地址
+		checked:是否显示,1为显示，0为不显示
+		myorder:排序
+		
+		lpic:站点图标,为空时表示文字链接,不为空时表示logo链接
+		width:图片宽度
+		height:图片高度	-->
+
+
+
+<!--文字友情链接-->
+		[e:loop={'select * from [!db.pre!]enewslink where checked=1 and lpic="" order by myorder limit 8',0,24,0}]
+		<li><a href="<?=$bqr['lurl']?>" title="<?=$bqr['lname']?>"><?=$bqr['lname']?></a></li>
+		[/e:loop]
+
+<!--图片友情链接-->
+		[e:loop={'select * from [!db.pre!]enewslink where checked=1 and lpic !="" order by myorder limit 8',0,24,0}]
+		<li><a href="<?=$bqr['lurl']?>" title="<?=$bqr['lname']?>">
+			<img src="<?=$bqr['lpic']?>" width="<?=$bqr['width']?>" height="<?=$bqr['height']?>"/>
+		</a></li>
+		[/e:loop]
+
+	</body>
+</html>

@@ -1,0 +1,63 @@
+1.模板标签变量：
+
+模板：将网页的结构规律予以固定化、标准化的成果，它体现的是结构形式的标准化。
+标签：按照一定的规则，循环输出网页中具有相同结构样式的数据
+变量：可变的量
+	1.直接在模板中使用的变量（唯一性）
+	2.在标签中使用的变量（多样性）
+	3.在标签参数中使用的变量（指向性）
+
+2.模板对应的页面
+
+首页模板: 网站首页
+封面页模板: 非终极栏目下的栏目及信息列表
+列表页模板: 终极栏目下所有信息标题的列表
+内容页模板: 具体的信息页面
+搜索页模板: 搜索到的信息标题的列表
+
+非终极栏目：有子栏目的栏目，不可以增加信息（文章）。
+终极栏目：没有子栏目的栏目，可以增加信息（文章）。
+
+举例:
+学校: 网站首页
+年级: 封面页，非终极栏目
+班级: 列表页，终极栏目
+学生: 内容页
+
+3.模板中直接调用变量
+<div style="margin: 100px auto;width: 800px;">
+			网页标题:[!--pagetitle--]<br>
+			网页关键词:[!--pagekeywords--]<br>
+			网页描述:[!--pagedescription--]<br>		
+			页面名称:[!--pagename--]<br>
+			页面ID:[!--pageid--]<br>
+			页面地址:[!--news.url--]<br>
+		</div>
+
+4.万能标签调用数据(ecmsinfo)
+	1、万能标签需先制作标签模板
+	2、数据调用需要读取标签模板
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>[!--pagetitle--]</title>
+		<meta name="Keywords" content="[!--pagekeywords--]"/>
+		<meta name="Description" content="[!--pagedescription--]"/>	
+		<style type="text/css">
+			a { text-decoration:none; color: #333;}
+		</style>		
+	</head>
+
+	<body>
+		<ul style="margin: 100px auto;width: 800px;">
+		[ecmsinfo]2,11,30,0,0,13,0[/ecmsinfo]
+		</ul>
+	</body>
+</html>
+
+
+5.灵动标签调用数据(e:loop)
+	1、灵动标签不需要制作和读取标签模板，页面结构清晰
+	2、直接从数据库获取数据，速度快效率高

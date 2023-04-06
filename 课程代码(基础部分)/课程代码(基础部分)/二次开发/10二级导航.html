@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+*{margin: 0;padding: 0;
+
+-webkit-box-sizing: border-box;
+
+   -moz-box-sizing: border-box;
+
+        box-sizing: border-box;
+}
+body{font-size: 16px;font-family: "微软雅黑";color: #333333;}
+b{font-weight: normal;}
+i{font-style: normal;}
+a,a:hover,a:active{text-decoration: none;color: #333333;}
+input,textarea,select{outline:none}
+img{border: none;vertical-align:middle;}
+li{list-style: none;}
+
+.fl{float: left;}
+.fr{float: right;}
+.cl{clear: both;}
+.clearfix::after{
+	content: "";
+	display: table;
+	clear: both;
+}			
+			
+			
+			.ul1{
+				width: 803px;height: 52px;border: 1px solid #000;
+				margin: 100px auto;text-align: center;
+			}
+			.li1{
+				width: 98px;height: 50px;line-height: 50px;margin: 0 1px;
+				float: left;position: relative;
+			}
+			.li1 div{
+				width: 98px;height: 50px;background: #ccc;
+			}
+			.ul2{
+				position: absolute;top: 52px;left: 0;display: none;
+			}
+			.li2{
+				width: 98px;height: 50px;background: #ccc;border-bottom: 1px solid #000;
+			}
+			.li1:hover .ul2{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+<!--循环栏目导航标签 (listshowclass)调用二级导航		
+[listshowclass]父栏目ID,标签模板ID,是否显示栏目信息数,显示栏目数[/listshowclass]		
+标签模板变量说明：		
+	页面模板内容:	
+		[!--bclassname--]：父栏目名
+		[!--bclassurl--]：父栏目链接
+		[!--bclassid--]：父栏目id
+		[!--bclassimg--]：父栏目图片
+		[!--bintro--]：父栏目简介
+		[!--bnum--]：父栏目信息数
+		[!--bno--]：父栏目序号
+	列表内容模板(list.var):
+		[!--classurl--]：栏目链接
+		[!--classname--]：栏目名称
+		[!--classid--]：栏目id
+		[!--classimg--]：栏目图片
+		[!--intro--]：栏目简介
+		[!--num--]：信息数
+		[!--no--]：序号-->
+
+
+
+		<nav>
+			<ul class="ul1">
+<li class="li1">
+	<div><a href="[!--bclassid--]">[!--bclassname--]</a></div>
+	<ul class="ul2">
+		<li class="li2"><a href="[!--classurl--]">[!--classname--]</a></li>						
+	</ul>
+</li>				
+			</ul>
+		</nav>
+		
+		
+	</body>
+</html>

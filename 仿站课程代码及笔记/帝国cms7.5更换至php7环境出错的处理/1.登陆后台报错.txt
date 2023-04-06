@@ -1,0 +1,10 @@
+帝国cms7.5切换成php7.x环境时登陆后台空白
+
+1.已经安装好帝国CMS换PHP7.*运行环境时：
+	修改配置文件“/e/config/config.php”
+	将“$ecms_config['db']['usedb']='mysql';”
+	修改为“$ecms_config['db']['usedb']='mysqli';”
+	注意事项：UTF8文件不能用记事本修改文件，否则会将文件转为GBK编码
+
+2.全新安装帝国CMS时：
+	只需安装时“MYSQL接口类型”选择“mysqli”即可支持PHP7系列。

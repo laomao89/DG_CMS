@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<head>
+    <title>丽江古城官方旅游宣传平台 --中文站点</title>
+   <title></title>
+    <link rel="stylesheet" type="text/css" href="/skin/static/css/head.css">
+    <link rel="stylesheet" type="text/css" href="/skin/static/css/neilun.css">
+    <script type="text/javascript" src="/skin/static/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="/skin/static/js/jquery.jslides.js"></script>
+    <script type="text/javascript" src="/skin/static/js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="/skin/static/js/SuperSlide.js"></script>
+<style>
+.ddd{
+    font-size: 14.6px;
+    color: #6d4321;
+}
+
+.ddd:hover {
+    background: #7e471b;
+    color: #fff;
+}
+</style>    
+</head>
+<body style="background:#f9f2e4;">
+<!-- 头部 -->
+<div class="head" style="background: #f9f2e4;">
+    <div class="dao_hang" >
+        <div class="auto">
+ <!-- 导航开始 -->
+[!--temp.headernav--]
+<!-- 导航结束 -->
+        </div>
+    </div>
+
+</div>
+
+<!--头部banner开始-->
+[!--temp.banner--]
+<!--头部banner结束-->
+<!-- 内容开始 -->
+<div class="auto auto2">
+    <div class="nei_left" style="height:auto; padding-bottom:53px;">
+        <p class="shou">[!--class.name--]</p>
+       <a href="/PROTECTION/gcwh/"><img class="whf" src="[!--productpic--]" width="700px"></a>
+        <img class="whf" src="[!--titlepic--]">
+        <form class="bi_dan" action="/e/ShopSys/AddDd.php" id="alipayForm" method="post">
+            <!--购买流程-->
+			<input type="hidden" name="enews" value="AddDd">
+			<!--栏目id-->
+			<input type="hidden" name="classid" value="[!--classid--]">
+			<!--商品id-->
+			<input type="hidden" name="id" value="[!--id--]">
+			<!--支付方式-->
+			<input type="hidden" name="payfsid" value='3'>
+            <!--备注-->
+			<input type="hidden" name="bz" id="bz" value=''>
+            
+            
+            <p class="ji_ne">金 额：[!--price--]  元/人次</p>
+            <p class="ji_ne">数 量：
+                <a onclick="changeSub()" href="javascript:"><img src="/skin/static/images/icon_08_14.jpg"/></a>
+                    <input type="text" class="online_num" name="pn" id="online" maxlength="10"style="width: 20px;align-content: center" value="1"/>
+                <a onclick="changeAdd()" href="javascript:"><img src="/skin/static/images/icon_08_15.jpg"/></a>
+                </span>
+            </p>
+            <p class="quo">取票电话   <input type="text" name="phone" class="qup"></p>
+            <div id="list">
+            <p class="jpa">
+            	缴纳人姓名 <input type="text" class="jna"> 
+            	证件号码 <input type="text"  class="xigmg"></p>
+            </div>
+
+        <p class="zhushi">[!--newstext--]</p>
+        <a href="/PROTECTION/gcwh/" class="gcwh">古维征收政策</a>
+        <a class="gcwh qjs" onclick="pay()">去结算</a>
+
+        </form>
+
+
+    </div>
+
+
+    <div class="right">
+
+
+            <!-- 右边公共 -->
+[!--temp.sider--]
+            <!-- 右边公共结束 -->
+    </div>
+    <br class="qc"/>
+</div>
+</div>
+
+
+<br class="qc"/>
+</div>
+
+
+<!-- 底部 -->
+[!--temp.footer--]
+<!-- 底部结束 -->
+
+</body>
+
+<script type="text/javascript">
+
+
+    function changeAdd(){
+
+        var online = $("#online").val();
+        online = online*1+1;
+        $("#online").attr("value",online);
+        $("#list").append('<p class="jpa">缴纳人姓名 <input type="text" class="jna">证件号码 <input type="text"  class="xigmg"></p>');
+    }
+    function changeSub(){
+
+        var online = $("#online").val();
+        var div = document.getElementById("list");
+        online = online*1-1;
+        if(online>=1){
+            div.removeChild(div.lastChild);
+            $("#online").attr("value",online);
+        }
+
+
+    }
+
+    function pay()
+    {
+        var isGoOn = true;
+        
+
+        if(isGoOn&&$(".qup").val()==""){
+            alert("取票人电话不能为空!");
+            isGoOn = false;
+        }
+       
+        
+        $(".jna").each(function(){
+            if(isGoOn&&this.value=="")
+            {
+                alert("缴纳人姓名不能为空!");
+                isGoOn = false;
+            }
+        });
+
+        $(".xigmg").each(function(){
+            if(isGoOn&&this.value=="")
+            {
+                alert("取票人证件号不能为空!");
+                isGoOn = false;
+
+            }
+        });
+
+        if(isGoOn){
+        	var jna = document.getElementsByClassName("jna");
+        	var xigmg = document.getElementsByClassName("xigmg");
+        	var str='';
+        	for (var i=0;i<jna.length;i++) {
+        		str +=jna[i].value+':'+xigmg[i].value+'||';
+        	}
+        	document.getElementById("bz").value = str;
+        	
+            document.getElementById("alipayForm").submit();
+        }
+
+    }
+
+</script>
+
+</html>

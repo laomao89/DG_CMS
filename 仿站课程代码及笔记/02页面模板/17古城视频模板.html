@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<head>
+    <title>[!--pagetitle--]</title>
+   <title></title>
+    <link rel="stylesheet" type="text/css" href="/skin/static/css/head.css">
+    <link rel="stylesheet" type="text/css" href="/skin/static/css/neilun.css">
+    <script type="text/javascript" src="/skin/static/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="/skin/static/js/jquery.jslides.js"></script>
+    <script type="text/javascript" src="/skin/static/js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="/skin/static/js/SuperSlide.js"></script>
+<style>
+.ddd{
+    font-size: 14.6px;
+    color: #6d4321;
+}
+
+.ddd:hover {
+    background: #7e471b;
+    color: #fff;
+}
+</style>    
+</head>
+<body style="background:#f9f2e4;">
+<!-- 头部 -->
+<div class="head" style="background: #f9f2e4;">
+    <div class="dao_hang" >
+        <div class="auto">
+<!-- 导航开始 -->
+[!--temp.headernav--]
+<!-- 导航结束 -->
+        </div>
+    </div>
+
+<!--头部banner开始-->
+[!--temp.banner--]
+<!--头部banner结束-->
+    <!-- 内容开始 -->
+    <div class="auto auto2">
+        <div class="nei_left" style="position:relative">
+            <p class="shou">[!--class.name--]</p>
+ 
+ 	 	<div class="shipin">
+			<video id="vd" src="https://www.ljgc517.com/ljgcapp/u/cms/www/201809/189929.mp4"  width="677" height="398" controls="controls" preload="auto">			
+				当前浏览器不支持 video直接播放
+			</video>
+        </div>
+
+        <p class="ganxie">一滴水经过丽江</p>
+
+
+		<div class="reviewlist">
+            <div class="bd">
+                <ul>
+                    <li>
+                        <a href="javascript:void(0)" onclick="attrSrc(this)" data-src="https://www.ljgc517.com/ljgcapp/u/cms/www/201809/189929.mp4">
+                            <div class="reviewpic">
+                                <img src="/skin/static/images/301208457icv.jpg" />
+                            </div>
+                            <p>一滴水经过丽江</p>
+                        </a>
+                    </li>
+                    <li>
+                         <a href="javascript:void(0)" onclick="attrSrc(this)" data-src="https://www.ljgc517.com/u/cms/www/201802/01114818tjbg.mp4">
+                            <div class="reviewpic">
+                                <img src="/skin/static/images/30162026wroh.jpg" />
+                            </div>
+                            <p>魅力丽江——低音萨克斯（梁凡）</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.ljgc517.com:80/gcsp/906.htm">
+                            <div class="reviewpic">
+                                <img src="/skin/static/images/30162827317n.jpg" />
+                            </div>
+                            <p>魅力丽江——古筝独奏（黄丽梅）</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.ljgc517.com:80/gcsp/907.htm">
+                            <div class="reviewpic">
+                                <img src="/skin/static/images/30163008cdv8.jpg" />
+                            </div>
+                            <p>魅力丽江——笛子独奏（奚绍善）</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.ljgc517.com:80/gcsp/908.htm">
+                            <div class="reviewpic">
+                                <img src="/skin/static/images/301632360r5w.jpg" />
+                            </div>
+                            <p>魅力丽江——男声独唱（金甲劲松）</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.ljgc517.com:80/gcsp/909.htm">
+                            <div class="reviewpic">
+                                <img src="/skin/static/images/30163541ffcg.jpg" />
+                            </div>
+                            <p>魅力丽江——高音萨克斯（黄建伟）</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.ljgc517.com:80/gcsp/910.htm">
+                            <div class="reviewpic">
+                                <img src="/skin/static/images/30164239v54e.jpg" />
+                            </div>
+                            <p>魅力丽江——琵琶独奏（杨瑜）</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <a class="prev" href="javascript:void(0)"><img src="/skin/static/images/zzz.png"></a>
+            <a class="next" href="javascript:void(0)"><img src="/skin/static/images/yyy.png"></a>
+            <script type="text/javascript">
+                jQuery(".reviewlist").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"left",autoPlay:true,vis:5,delayTime:1000});
+            </script>
+        	</div>
+        </div>
+
+        <div class="right">
+
+
+            <!-- 右边公共 -->
+[!--temp.sider--]
+            <!-- 右边公共结束 -->
+        </div>
+        <br class="qc"/>
+    </div>
+</div>
+
+
+<br class="qc"/>
+</div>
+
+
+<!-- 底部 -->
+[!--temp.footer--]
+<!-- 底部结束 -->
+
+
+</body>
+<script type="text/javascript">
+    // 左右翻页
+ 
+    $(".litu").click(function(){
+        $(this).addClass('xd').siblings().removeClass('xd');
+        console.log(url)
+        var url=$(".xd").html();
+        $('.datu').html(url)
+    })
+
+    $(".drg").click(function(){
+        $(".xd").next().addClass('xd').siblings().removeClass('xd');
+        var url=$(".xd").html();
+        $('.datu').html(url)
+
+    })
+
+    $(".dlt").click(function(){
+        $(".xd").prev().addClass('xd').siblings().removeClass('xd');
+        var url=$(".xd").html();
+        $('.datu').html(url)
+    })
+    
+    function attrSrc(obj){
+    	var vsrc= obj.getAttribute("data-src");
+    	alert(vsrc);
+    	document.getElementById("vd").src=vsrc;
+    }
+    
+
+</script>
+
+
+</html>
+

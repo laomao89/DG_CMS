@@ -1,0 +1,151 @@
+1.多值字段添加文件选择
+加入js字符串拼接中：
+<input type="button" name="Submit" value="选择" onclick="window.open(\'ecmseditor/FileMain.php?type=0&classid=<?=$classid?>&infoid=<?=$id?>&filepass=<?=$filepass?>&sinfo=1&doing=1&field=ID值<?=$ecms_hashur[ehref]?>\',\'\',\'width=700,height=550,scrollbars=yes\');">
+
+加入php第1个for循环中：
+<input type="button" name="Submit" value="选择" onclick="window.open('ecmseditor/FileMain.php?type=0&classid=<?=$classid?>&infoid=<?=$id?>&filepass=<?=$filepass?>&sinfo=1&doing=1&field=ID值<?=$ecms_hashur[ehref]?>','','width=700,height=550,scrollbars=yes');">
+
+==========================================================================
+
+2.网站所需图片，音频，视频等资源处理方法:
+	图片，音频上传到本站，使用服务器和虚拟主机都可以
+	视频上传到本站使用服务器没问题，使用虚拟主机不行，因为虚拟主机不能修改配置文件，没有对应的mime类型。
+	为什么虚拟主机不允许上传视频？因为视频消耗的流量最多，而流量费用是很贵的。
+	
+处理方法:
+	图片，音频，视频等资源使用外链，服务器和虚拟主机都可以使用
+	外链:把图片，音频，视频等资源上传到专门用于存储资源的服务器上，通过外链的形式给本站使用
+	
+	
+外链服务器：
+	QQ空间，百度网盘，以前可以，现在不能用
+	腾讯云，阿里云，七牛云，有专门的外链服务。安全性高，速度快，可限制其他域名访问。需要收费。
+	没限制其他域名访问的网站及某某微博，可免费外链。
+	
+==========================================================================
+
+3.使用仿站小工具，下载目标网站资源及源代码
+	将网站资源保存于skin目录中，修改代码中资源路径。
+	观察各页面之间关系，找出公共部分，提取公共模板。
+==========================================================================
+
+4.头部二级导航
+	通过修改e/class/t_functions.php文件,让循环栏目导航标签可以调用栏目别名
+	
+创建二级导航标签模板：	
+页面模板内容(*)：
+<li>
+	<a href="[!--bclassid--]"><span></span>
+		<div class="wen">
+			<p class="dd">[!--bclassname--]</p>
+			<p class="dd2">[!--bbname--]</p>
+		</div>
+	</a>
+	<ul class="erji">
+		[!--empirenews.listtemp--]<!--list.var1-->[!--empirenews.listtemp--]
+	</ul>
+</li>
+
+列表内容模板(list.var) (*)：
+<a href="[!--classurl--]"><li>[!--classname--]</li></a>	
+
+头部模板引入循环栏目导航标签：[listshowclass]'0',1,0,0[/listshowclass]
+
+栏目不显示到导航:
+	打开栏目，然后找到要修改的栏目名，点击选项设置。
+	是否显示到导航，勾选不显示。
+
+================================================================
+5.文字截取：
+	esub(字符串,截取长度)，例子：esub($bqr[title],30)截取标题前30个字符
+	esub(字符串,截取长度,'...')，例子：esub($bqr[title],30,'...')截取标题前30个字符,后面用'...'替换
+	
+================================================================	
+6.程序扩展变量 $GLOBALS[navclassid]  当前页面所在的栏目ID
+获取当前页面所在栏目信息(封面页，列表页，内容页均可使用)
+[e:loop={"select classimg from [!db.pre!]enewsclass where classid=$GLOBALS[navclassid]",1,24,0}]
+	<img src="<?=$bqr[classimg]?>"/>
+[/e:loop]
+
+内容模板变量说明:字段值数组：$navinfor
+调用方法：$navinfor[字段名]，比如要显示＂信息ID字段＂，在模板里用：<?=$navinfor[id]?>即可输出(要开启模板支持程序代码)
+
+================================================================	
+
+7.列表模板list.var支持程序代码
+	需要勾选“使用程序代码”选项，直接添加PHP代码，不需要加<?和?>程序开始和结束标记。
+	字段值数组变量为$r，对应的字段变量为$r[字段名]，如：标题字段变量就是$r[title]。编号变量为$no。注意列表页只能调用主表字段。
+	将最终模板内容赋给$listtemp变量
+if($no%10==1){
+	$listtemp = '<a href="[!--titleurl--]"><li class="sh_ou">
+		<p class="p_t">[!--title--]</p>
+		<p class="p_r">[!--smalltext--]</p>
+	</li></a>';
+}else{
+	$listtemp = '<a href="[!--titleurl--]"><li>
+		<p class="p_t">[!--title--]</p>
+		<p class="p_r">[!--smalltext--]</p>
+	</li></a>';
+}
+
+====================================================================
+8.自定义过滤特殊字符函数
+function filter_char($str){  
+	$str=trim($str);  
+	$str=str_replace('&','',$str);  
+	$str=str_replace('ldquo;','“',$str);  
+	$str=str_replace('rdquo;','”',$str);  
+	$str=str_replace('middot;','·',$str);  
+	$str=str_replace('lsquo;','‘',$str);  
+	$str=str_replace('rsquo;','’',$str);  
+	$str=str_replace('hellip;','…',$str);  
+	$str=str_replace('mdash;','—',$str);  
+	$str=str_replace('ensp;','',$str);  
+	$str=str_replace('emsp;','',$str);
+	$str=str_replace('amp;','',$str);   
+	$str=str_replace('nbsp;','',$str);  
+	$str=str_replace('　','',$str);  
+	$str=str_replace('\t','',$str);    
+	$str=str_replace('\r\n','',$str);    
+	$str=str_replace('\r','',$str);    
+	$str=str_replace('\n','',$str);    
+	$str=str_replace(' ','',$str);  
+	$str = preg_replace('/\s(?=\s)/','', $str);// 接着去掉两个空格以上的  
+	$str = preg_replace('/[\n\r\t]/',' ', $str);// 最后将非空格替换为一个空格  
+	return trim($str);  
+}
+将上述函数放到 /e/class/userfun.php 中
+
+灵动标签：<?=filter_char($bqr['smalltext'])?>
+列表内容模板：$smalltext= filter_char($r[smalltext]);
+内容页：<?=filter_char($navinfor['smalltext'])?>
+
+===================================================
+9.帝国分页修改
+	1.修改：/e/class下的t_functions.php这个文件里
+		列表页模板[!--show.page--]:分页导航(下拉式)  大概在10-98行；
+		列表页模板[!--show.listpage--]:分页导航(列表式) 在101-169行；
+		内容页模板[!--page.url--]:分页导航 (列表式)在172-228行；
+		内容页模板[!--title.select--]:标题式分页导航(下拉式) 在231-262行。
+	2.修改：/e/config/config.php查找'listpagetemp'修改
+
+======================================================
+10.内容页翻页（上一页，下一页）
+帝国CMS自带模板变量: 
+	上一篇：[!--info.pre--]       下一篇：[!--info.next--]
+	输出的结构：<a href='链接'>标题文字</a>
+	修改：e/class/function.php , 分别查找[!--info.pre--]和[!--info.next--],找到a标签修改即可
+
+======================================================
+11.栏目绑定信息功能，可以用内容页做单页面:
+	创建栏目，在栏目的模板选项中，找到“栏目绑定信息”，之后填写绑定的栏目ID,内容页ID
+	注意格式：栏目ID,内容页ID ，注意这两个id之间用的是英文下的逗号。
+
+======================================================
+12.栏目跳转子栏目
+在模板中查询当前页面的子栏目链接，执行跳转：
+<script>
+	[e:loop={"select classpath from {$dbtbpre}enewsclass where bclassid='$GLOBALS[navclassid]'  order by classid asc limit 1,1",1,24,0}]
+		window.location.href='/<?=$bqr[classpath]?>/';
+	[/e:loop]
+</script>

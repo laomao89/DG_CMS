@@ -1,0 +1,29 @@
+.zhleft { width: 1300px;  height: 384px; position:relative; margin-top: 0px;
+margin:0 auto;}
+
+#full-screen-slider { width:100%; height:100%; float:left; position:relative;}
+
+#slides { display:block; width:100%;height:100%; list-style:none; padding:0; margin:0; position:relative}
+
+#slides li { display:block; width:100%; height:384px; list-style:none; padding:0; margin:0; position:absolute}
+
+#slides li a { display:block; width:100%; height:100%; text-indent:-9999px}
+
+#pagination { float: left; /*鏀规垚娴姩浜�*/ list-style:none; position:absolute;  top: 340px; z-index:999; 
+ padding:0; width: 100px; right: 30px; display: block;}
+
+#pagination li { float: left; /*鏀规垚娴姩浜�*/ list-style:none; width:22px; height:22px; float:left; margin-left:10px; ; background:red;}
+
+#pagination li a { display:block; width:100%; height:100%; padding:0; margin:0; 
+color: #fff;font-size: 20px;text-align: center; line-height: 22px;}
+#pagination li.current { background:#0092CE}
+
+.dao_hang{
+ background:url(../images/han.png);
+background-repeat: no-repeat;
+ height: 106px;
+ background-position: center;
+        #width:100%;
+       # height:40%;
+        background-size:1400px 100%;
+}

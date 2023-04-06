@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+<!--搜索表单文档：美工手册--其它模板--搜索表单制作-->		
+<!--高级搜索路径:   [!--news.url--]search/-->		
+
+<!--classid	搜索栏目ID(不设置按默认数据表搜索，多个栏目可用","隔开,但必须是同一个数据表，设置父栏目会搜索所有子栏目)-->
+
+
+<form action="/e/search/index.php" method="post">
+	站内搜索：<input type="text" name="keyboard" value="" />
+	<input type="hidden" name="show" value="title,smalltext,ftitle,newstime" />
+	<input type="hidden" name="classid" value="2,3" />
+	<input type="submit" value="搜索"/>
+	<a href="[!--news.url--]search/">高级搜索</a>	
+</form>		
+		
+
+	<select name="classid">
+		<option value="2">新闻</option>
+		<option value="3">下载</option>
+		<option value="7">图库</option>
+		<option value="8">文章</option>
+		<option value="9">分类信息</option>
+	</select>	
+
+
+	</body>
+</html>

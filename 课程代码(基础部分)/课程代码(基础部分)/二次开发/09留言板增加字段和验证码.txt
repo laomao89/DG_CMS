@@ -1,0 +1,52 @@
+留言板增加字段和验证码
+
+1、在数据库的enewsgbook表中添加您要显示的字段，比如要加"qq"字段，
+	可以用工具添加，也可以执行sql添加：ALTER TABLE [!db.pre!]enewsgbook ADD qq VARCHAR(100);
+
+2、修改e/enews/gbookfun.php   
+第18行左右：
+	$name=RepPostStr(trim($add[name]));
+    $email=RepPostStr($add[email]);
+    $call=RepPostStr($add[call]);
+    $lytext=RepPostStr($add[lytext]);
+    $qq=RepPostStr(trim($add[qq]));  //增加的qq
+    if(empty($bid)||empty($qq)||empty($name)||empty($email)||!trim($lytext))  //qq字段检测不允许为空  
+
+第68行左右：
+$sql=$empire->query("insert into {$dbtbpre}enewsgbook
+
+(name,qq,email,`mycall`,lytime,lytext,retext,bid,ip,checked,userid,username) values
+
+('$name','$qq','$email','$mycall','$lytime','$lytext','','$bid','$ip','$br
+
+[checked]','$userid','$username');"); //插入字段记录
+
+
+3、修改e/data/template/gbooktemp.txt
+第62行左右
+$query="select lyid,name,qq,email,`mycall`,lytime,lytext,retext from {$dbtbpre}enewsgbook 
+
+where bid='$bid' and checked=0";   //查询字段中添加qq
+
+4、修改e/class/t_functions.php
+第1850行左右
+$listtemp=str_replace("[!--lyid--]",$r['lyid'],$listtemp);//id
+$listtemp=str_replace("[!--lytext--]",nl2br($r['lytext']),$listtemp);//留言内容
+$listtemp=str_replace("[!--retext--]",nl2br($r['retext']),$listtemp);//回复
+$listtemp=str_replace("[!--lytime--]",format_datetime($r['lytime'],$formatdate),$listtemp);
+$listtemp=str_replace("[!--name--]",$r['name'],$listtemp);
+$listtemp=str_replace("[!--qq--]",$r['qq'],$listtemp);
+
+5、修改e/class/functions.php
+第4550行左右添加
+$listtemp_center=str_replace("[!--lyid--]","<?=\$r[lyid]?>",$listtemp_center);
+$listtemp_center=str_replace("[!--name--]","<?=\$r[name]?>",$listtemp_center);
+$listtemp_center=str_replace("[!--qq--]","<?=\$r[qq]?>",$listtemp_center);
+
+
+
+6、然后修改留言模板
+（1）加入必填项： <input name="qq" type="text" id="qq" />
+（2）加入验证码： <input type=text name=key><img src="/e/ShowKey/?v=gbook" onClick="this.src=this.src +'&xx='+Math.random()" alt="看不清楚,点击刷新">
+（3）后台开启留言验证：  系统参数修改------信息设置   ---留言验证码
+至此，留言字段添加成功。

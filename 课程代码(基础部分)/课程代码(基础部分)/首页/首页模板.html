@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+<meta charset="utf-8" />
+<title>[!--pagetitle--]</title>
+<meta name="keywords" content="[!--pagekey--]" />
+<meta name="description" content="[!--pagedes--]" />
+<link href="[!--news.url--]skin/default/css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="[!--news.url--]skin/default/css/swiper.min.css"/>
+<script type="text/javascript" src="[!--news.url--]skin/default/js/tabs.js"></script>
+</head>
+
+<body class="homepage">
+<!-- 页头 -->
+[!--temp.header--]
+
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+<tr valign="top">
+<td class="sider"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="title">
+<tr>
+<td><strong>最后更新</strong></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+<tr>
+<td><ul>
+[e:loop={2,11,0,0}]
+	<li><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=esub($bqr['title'],26)?></a></li>
+[/e:loop]	
+</ul>
+
+<table width="94%" border="0" align="center" cellpadding="0" cellspacing="6" class="picText">
+<tr valign="top">
+	
+[e:loop={2,1,0,1,'isgood=1 and firsttitle=1'}]
+<td><a href="<?=$bqsr['titleurl']?>" target="_blank"><img width="70" height="78" src="<?=$bqr['titlepic']?>" alt="<?=$bqr['title']?>" /></a></td>
+<td><strong><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=esub($bqr['title'],18)?></a></strong><?=esub($bqr['smalltext'],60)?></td>
+[/e:loop]	
+
+</tr>
+</table>
+</td>
+</tr>
+</table></td>
+<td class="content"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+  <td> 
+    <!-- 焦点图片，调用默认模型带标题图片的头条信息 -->
+		<!--swiper页面结构-->
+		<div class="swiper-container" style="width: 450px;height: 255px;">
+		    <div class="swiper-wrapper">		    	
+		        [e:loop={2,3,12,1}]
+		        <div class="swiper-slide">
+		        	<a href="<?=$bqsr['titleurl']?>"><img src="<?=$bqr['titlepic']?>" width="450" height="255"/></a>
+		        </div>
+		        [/e:loop]		       
+		    </div>		
+		</div>		
+		<script src="[!--news.url--]skin/default/js/swiper.min.js"></script>
+		<script> 
+			
+			//初始化一个Swiper实例    new Swiper(swiper容器, 个性化配置)
+		  var mySwiper = new Swiper ('.swiper-container', {
+				loop:true,  //开启环路，会在项目前后复制各一个,让Swiper看起来是循环的,默认为false
+				autoplay:true,  //开启自动切换，默认为false
+		  })        
+		</script>
+ </td>
+</tr>
+</table>
+<!-- 头条信息调用 -->
+<table width="100%" border="0" cellspacing="8" cellpadding="0" class="focus">
+<tr>
+<td>
+[e:loop={2,1,12,0}]
+<strong><a href="<?=$bqsr['titleurl']?>"><?=esub($bqr['title'],40)?></a></strong>
+<p><?=esub($bqr['smalltext'],160)?></p>
+[/e:loop]	
+</td>
+</tr>
+<tr>
+<td align="center">
+	[e:loop={2,'1,2',12,0}]
+	<a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>">·<?=esub($bqr['title'],28)?></a>
+	[/e:loop]	
+</td>
+</tr>
+</table></td>
+<td class="sider"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="title">
+<tr>
+<td><strong>推荐资讯</strong></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box no_doc">
+<tr>
+<td><ul>
+[e:loop={2,5,2,0}]
+<li><p><strong><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=esub($bqr['title'],28)?></a></strong><?=esub($bqr['smalltext'],60)?> </p></li>
+[/e:loop]
+</ul></td>
+</tr>
+</table></td>
+</tr>
+</table>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+    <td align="center" class="banner_ad"><a href="http://www.phome.net/ebak2008/" target="_blank" title="马上免费下载"><img src="[!--news.url--]skin/default/images/empirebak.gif" width="920" height="90" border="0" /></a></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+<tr valign="top">
+<td width="230" class="sider"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="title">
+<tr>
+<td><strong><a href="/info/">分类信息</a></strong></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+<tr>
+<td><ul>
+[e:loop={9,10,0,0}]
+<li><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=esub($bqr['title'],28)?></a></li>
+[/e:loop]	
+</ul></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="title margin_top">
+<tr>
+<td><strong><a href="/download/">下载更新</a></strong></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box no_doc">
+<tr>
+<td><ul>
+[e:loop={3,4,0,0}]
+     <li><p><strong><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=esub($bqr['title'],28)?></a></strong><?=esub($bqr['softsay'],68)?></p></li>
+  [/e:loop]	   
+</ul></td>
+</tr>
+</table></td>
+<td class="content"><!-- tab选项卡，默认为点击变化，如需改为移动，将onmouseover改为onclick -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tbtn1">
+<tr>
+<td class="tbtncon"><ul><li class="curr" id="tab1_btn_0" onmouseover="etabit(this)">新闻</li><li id="tab1_btn_1" onmouseover="etabit(this)">图片</li></ul></td>
+</tr>
+<tr>
+<td class="picList"><div id="tab1_div_0"> <table width=100% border=0 cellpadding=3 cellspacing=0>
+	<tr>
+		[e:loop={2,3,0,1}]
+		<td align=center><a href='<?=$bqsr['titleurl']?>' target=_blank><img src='<?=$bqr['titlepic']?>' width='128' height='90' border=0 alt='<?=$bqr['title']?>'><br><span style='line-height:15pt'><?=esub($bqr['title'],20)?></span></a></td>
+		[/e:loop]
+	</tr>
+	<tr>
+		[e:loop={2,'3,3',0,1}]
+		<td align=center><a href='<?=$bqsr['titleurl']?>' target=_blank><img src='<?=$bqr['titlepic']?>' width='128' height='90' border=0 alt='<?=$bqr['title']?>'><br><span style='line-height:15pt'><?=esub($bqr['title'],20)?></span></a></td>
+		[/e:loop]	
+	</tr>
+	</table> 
+            </div>
+            <div id="tab1_div_1" style="display:none;"> <table width=100% border=0 cellpadding=3 cellspacing=0>
+            	<tr>
+		[e:loop={7,3,0,1}]
+		<td align=center><a href='<?=$bqsr['titleurl']?>' target=_blank><img src='<?=$bqr['titlepic']?>' width='128' height='90' border=0 alt='<?=$bqr['title']?>'><br><span style='line-height:15pt'><?=esub($bqr['title'],20)?></span></a></td>
+		[/e:loop]
+            	</tr>	
+            	<tr>
+		[e:loop={7,'3,3',0,1}]
+		<td align=center><a href='<?=$bqsr['titleurl']?>' target=_blank><img src='<?=$bqr['titlepic']?>' width='128' height='90' border=0 alt='<?=$bqr['title']?>'><br><span style='line-height:15pt'><?=esub($bqr['title'],20)?></span></a></td>
+		[/e:loop]	
+            	</tr></table> 
+            </div>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="title margin_top">
+<tr>
+<td><strong>精彩专题</strong></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="box">
+<tr valign="top">
+<td width="50%"><table width="100%" border="0" cellpadding="0" cellspacing="0" class="news_title">
+<tr>
+    <td>
+    	<!--国内一级推荐-->
+[e:loop={34,1,0,0,'isgood=1'}]  	
+<strong><a href="<?=$bqsr['titleurl']?>"><?=esub($bqr['title'],20)?></a></strong>
+<p><?=esub($bqr['smalltext'],140)?></p>
+[/e:loop] 
+ 	</td>
+</tr>
+</table>
+<ul>
+[e:loop={34,7,0,0}]  	
+    <li><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=esub($bqr['title'],26)?></a></li>
+[/e:loop]     
+            </ul></td>
+<td width="50%"><table width="100%" border="0" cellpadding="0" cellspacing="0" class="news_title">
+<tr>
+    <td>
+    <!--国级一级推荐-->	
+[e:loop={35,1,0,0,'isgood=1'}]  	
+<strong><a href="<?=$bqsr['titleurl']?>"><?=esub($bqr['title'],20)?></a></strong>
+<p><?=esub($bqr['smalltext'],140)?></p>
+[/e:loop] 
+</td>
+</tr>
+</table>
+<ul>
+[e:loop={35,7,0,0}]  	
+    <li><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=esub($bqr['title'],26)?></a></li>
+[/e:loop]  
+            </ul></td>
+</tr>
+</table></td>
+<td width="240" class="sider"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="title">
+<tr>
+<td><strong>热门点击</strong></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+<tr>
+<td><ol class="rank">
+[e:loop={2,10,1,0}]	
+<li class="no<?=$bqno?>"><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=esub($bqr['title'],30)?></a></li>
+[/e:loop]
+</ol></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="title margin_top">
+<tr>
+<td><strong>热门评论文章</strong></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+<tr>
+<td><ul>
+[e:loop={2,13,9,0}]	
+<li><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=esub($bqr['title'],30)?></a></li>
+[/e:loop]
+</ul></td>
+</tr>
+</table></td>
+</tr>
+</table>
+<!-- 友情链接 -->
+<table width="100%" border="0" cellspacing="10" cellpadding="0" class="links">
+<tr>
+<td><table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#E9F2FB" class="title">
+<tr>
+<td><strong>友情链接</strong></td>
+          <td align="right">&nbsp;</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="10" cellpadding="0" class="box">
+<tr>
+          <td>
+            <!-- 文字链接 -->
+            <table width=100% border=0 cellpadding=3 cellspacing=0><tr>
+		[e:loop={'select * from [!db.pre!]enewslink where checked=1 and lpic="" order by myorder limit 8',0,24,0}]		           	
+            	<td align=center><a href='<?=$bqr['lurl']?>' title='<?=$bqr['lname']?>' target=_blank><?=$bqr['lname']?></a></td>
+        [/e:loop]     	
+            	</tr></table> 
+            <hr width="100%" size="1" noshade="noshade" />
+            <!-- logo链接 -->
+            <table width=100% border=0 cellpadding=3 cellspacing=0><tr>
+		[e:loop={'select * from [!db.pre!]enewslink where checked=1 and lpic !="" order by myorder limit 8',0,24,0}]         	
+            	<td align=center><a href='<?=$bqr['lurl']?>' target=_blank><img src='<?=$bqr['lpic']?>' alt='<?=$bqr['lname']?>' border=0 width='<?=$bqr['width']?>' height='<?=$bqr['height']?>'></a></td>
+        [/e:loop]     	
+            	</tr></table></td>
+</tr>
+</table></td>
+</tr>
+</table>
+<!-- 页脚 -->
+[!--temp.footer--]
+</body>
+</html>

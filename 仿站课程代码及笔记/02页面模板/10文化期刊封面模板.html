@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<head>
+    <title>[!--pagetitle--]</title>
+   <title></title>
+    <link rel="stylesheet" type="text/css" href="/skin/static/css/head.css">
+    <link rel="stylesheet" type="text/css" href="/skin/static/css/neilun.css">
+    <script type="text/javascript" src="/skin/static/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="/skin/static/js/jquery.jslides.js"></script>
+    <script type="text/javascript" src="/skin/static/js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="/skin/static/js/SuperSlide.js"></script>
+<style>
+.ddd{
+    font-size: 14.6px;
+    color: #6d4321;
+}
+
+.ddd:hover {
+    background: #7e471b;
+    color: #fff;
+}
+</style>    
+</head>
+<body style="background:#f9f2e4;">
+<!-- 头部 -->
+<div class="head" style="background: #f9f2e4;">
+    <div class="dao_hang" >
+        <div class="auto">
+<!-- 导航开始 -->
+[!--temp.headernav--]
+<!-- 导航结束 -->
+        </div>
+    </div>
+
+<!--头部banner开始-->
+[!--temp.banner--]
+<!--头部banner结束-->
+    <!-- 内容开始 -->
+    <div class="auto auto2">
+      <div class="nei_left" style="height:auto;">
+            <p class="shou">[!--class.name--]</p>
+            <div class="sbzs">
+                 <div class="fmfm">
+    [e:loop={"select classimg,classname from [!db.pre!]enewsclass where bclassid=$GLOBALS[navclassid] order by classid ASC limit 1",0,24,0}]
+		<img id="titleImg" src="<?=$bqr[classimg]?>">
+        <p id="qi_shu" class="qi_shu"><?=$bqr[classname]?></p>
+	[/e:loop]
+                 	                        
+                </div> 
+
+<?php
+$ecms_bq_sql=sys_ReturnEcmsLoopBq("select classid from [!db.pre!]enewsclass where bclassid=$GLOBALS[navclassid] order by classid ASC limit 10",0,24,0);
+$bqno=0;
+while($bqr=$empire->fetch($ecms_bq_sql))
+{
+        $bqsr=sys_ReturnEcmsLoopStext($bqr);
+        $bqno++;
+        if($bqno==1){
+        	$str= 'id="div1"';
+        }else{
+        	$str= 'id="div'.$bqno.'"  style="display:none"';
+        }              
+        ?>
+    <div class="nrnr" channelId="<?=$bqr[classid]?>" <?=$str?> >   
+        <?php
+        $ecms_bq_sql2=sys_ReturnEcmsLoopBq($bqr[classid],12,0,0);
+        $bqno2=0;
+        while($bqr2=$empire->fetch($ecms_bq_sql2))
+        {
+                $bqsr2=sys_ReturnEcmsLoopStext($bqr2);
+                $bqno2++;
+                ?>
+         <p><a href="<?=$bqsr2[titleurl]?>"><?=$bqr2[title]?></a></p>       
+                <?php
+        }
+        ?>
+
+    </div>
+        <?php
+}
+?>
+                             
+             	<br class="qc"/>
+            </div> 
+            
+            <ul class="difeng">
+<?php
+$ecms_bq_sql=sys_ReturnEcmsLoopBq("select classimg,classname from [!db.pre!]enewsclass where bclassid=$GLOBALS[navclassid] order by classid ASC limit 10",0,24,0);
+$bqno=0;
+while($bqr=$empire->fetch($ecms_bq_sql))
+{
+        $bqsr=sys_ReturnEcmsLoopStext($bqr);
+        $bqno++;
+        ?>
+		<li myindex="<?=$bqno?>"><img src="<?=$bqr[classimg]?>">
+            <p><?=$bqr[classname]?></p>
+        </li>
+        <?php
+}
+?>            	
+           	                     
+            </ul>
+        </div>
+
+        <div class="right">
+
+
+            <!-- 右边公共 -->
+[!--temp.sider--]
+            <!-- 右边公共结束 -->
+        </div>
+        <br class="qc"/>
+    </div>
+</div>
+
+
+<br class="qc"/>
+</div>
+
+
+<!-- 底部 -->
+[!--temp.footer--]
+<!-- 底部结束 -->
+
+
+</body>
+<script type="text/javascript">
+    $(".difeng li").click(function(){
+        $(this).addClass('xd').siblings().removeClass('xd');
+        var i = $(this).attr("myindex");
+        $("#div"+i).show();
+        $("#div"+i).siblings("[class='nrnr']").hide();
+        var url=$(".xd").html();
+        $('.fmfm').html(url)
+
+    });
+</script>
+
+
+</html>
