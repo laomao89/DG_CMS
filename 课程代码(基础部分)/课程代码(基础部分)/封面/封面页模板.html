@@ -1,79 +1,370 @@
+
 <!DOCTYPE html>
+<html>
 <head>
-<meta charset="utf-8" />
-<title>[!--pagetitle--]</title>
-<meta name="keywords" content="[!--pagekey--]" />
-<meta name="description" content="[!--pagedes--]" />
-<link href="[!--news.url--]skin/default/css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="[!--news.url--]skin/default/js/tabs.js"></script>
+	<meta charset="utf-8" />
+	<title>[!--pagetitle--]</title>
+	<meta name="keywords" content="[!--pagekey--]" />
+	<meta name="description" content="[!--pagedes--]" />
+	<link href="[!--news.url--]skin/default/css/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="[!--news.url--]skin/default/js/tabs.js"></script>
 </head>
 <body class="channle">
 <!-- 页头 -->
 [!--temp.header--]
 
 <table width="100%" border="0" cellspacing="10" cellpadding="0">
-<tr valign="top">
-<td class="news_list"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="position">
-<tr>
-<td>您当前的位置：[!--newsnav--]</td>
-</tr>
-</table>
+	<tr valign="top">
+		<td class="news_list"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="position">
+			<tr>
+				<td>您当前的位置：<a href="/">首页</a>&nbsp;>&nbsp;<a href="/news/">新闻中心</a></td>
+			</tr>
+		</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="title">
+				<tr>
+					<td><strong>国内新闻</strong></td>
+					<td align="right"><a href="/news/china/">更多&gt;&gt;</a></td>
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+				<tr>
+					<td><ul>
 
-<!--在封面页中，需要获取栏目中，各子栏目，以及子栏目数据，相当于双层循环-->
-<!--循环子栏目数据标签和标签模板配合-->
-[listsonclass]'selfinfo',5,32,0,0,14,0,0,0,32,0,0[/listsonclass]
-</td>
-<td class="sider"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="title">
-<tr>
-<td><strong>推荐资讯</strong></td>
-</tr>
-</table>
-<table width="100%" border="0" cellspacing="8" cellpadding="0" class="box">
-<tr>
-<td><table width=100% border=0 cellpadding=3 cellspacing=0>
-	<tr>
-[e:loop={'selfinfo',2,2,1}]
-		<td align=center><a href='<?=$bqsr['titleurl']?>' target=_blank><img src='<?=$bqr['titlepic']?>' width='128' height='90' border=0 alt='<?=$bqr['title']?>'><br><span style='line-height:15pt'><?=esub($bqr['title'],18)?></span></a></td>
-[/e:loop]				
+						<li><a href="/news/china/2012-12-10/69.html" title="广东丹霞山发现巨型"青铜剑"(组图)">广东丹霞山发现巨型&quot;青铜剑&quot;(组图)</a> <span>2012-12-10</span></li>
+
+						<li><a href="/news/china/2012-12-10/68.html" title="驻日大使崔天凯:胡锦涛主席访日有三点值得关注">驻日大使崔天凯:胡锦涛主席访日有三点值</a> <span>2012-12-10</span></li>
+
+						<li><a href="/news/china/2012-12-10/67.html" title="杭州湾跨海大桥日均车流量逾10万(组图)">杭州湾跨海大桥日均车流量逾10万(组图)</a> <span>2012-12-10</span></li>
+
+						<li><a href="/news/china/2012-12-10/66.html" title="广东省物价局：粮价节后上涨不可信">广东省物价局：粮价节后上涨不可信</a> <span>2012-12-10</span></li>
+
+						<li><a href="/news/china/2012-12-10/65.html" title="柏杨葬礼将于14日举行 骨灰抛撒绿岛海面">柏杨葬礼将于14日举行 骨灰抛撒绿岛海面</a> <span>2012-12-10</span></li>
+
+					</ul>
+					</td>
+				</tr>
+			</table><table width="100%" border="0" cellspacing="0" cellpadding="0" class="title">
+				<tr>
+					<td><strong>国际新闻</strong></td>
+					<td align="right"><a href="/news/world/">更多&gt;&gt;</a></td>
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+				<tr>
+					<td><ul>
+
+						<li><a href="/news/world/2012-12-10/72.html" title="中国紧急援助物资运抵缅甸仰光(组图)">中国紧急援助物资运抵缅甸仰光(组图)</a> <span>2012-12-10</span></li>
+
+						<li><a href="/news/world/2012-12-10/70.html" title="俄罗斯第三任总统梅德韦杰夫宣誓就职">俄罗斯第三任总统梅德韦杰夫宣誓就职</a> <span>2012-12-10</span></li>
+
+						<li><a href="/news/world/2012-12-10/15.html" title="中国紧急援助物资运抵缅甸仰光(组图)">中国紧急援助物资运抵缅甸仰光(组图)</a> <span>2012-12-10</span></li>
+
+						<li><a href="/news/world/2012-12-10/14.html" title="印度成功试射一枚“烈火－3”型导弹">印度成功试射一枚“烈火－3”型导弹</a> <span>2012-12-10</span></li>
+
+						<li><a href="/news/world/2012-12-10/13.html" title="马来红新月会宣布将向缅甸派出救灾小组">马来红新月会宣布将向缅甸派出救灾小组</a> <span>2012-12-10</span></li>
+
+					</ul>
+					</td>
+				</tr>
+			</table><table width="100%" border="0" cellspacing="0" cellpadding="0" class="title">
+				<tr>
+					<td><strong>娱乐新闻</strong></td>
+					<td align="right"><a href="/news/ent/">更多&gt;&gt;</a></td>
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+				<tr>
+					<td><ul>
+
+						<li><a href="/news/ent/2012-12-10/76.html" title="“最美清洁工”原是《赤壁》宫女">“最美清洁工”原是《赤壁》宫女</a> <span>2012-12-10</span></li>
+
+						<li><a href="/news/ent/2012-12-10/75.html" title="尹馨大胆亮相《男人装》 嫩肤美腿勾人魂">尹馨大胆亮相《男人装》 嫩肤美腿勾人魂</a> <span>2012-12-10</span></li>
+
+						<li><a href="/news/ent/2012-12-10/74.html" title="传张艺谋因执导奥运身价涨5倍">传张艺谋因执导奥运身价涨5倍</a> <span>2012-12-10</span></li>
+
+						<li><a href="/news/ent/2012-12-10/73.html" title="张曼玉广告写真花絮曝光 流露优雅从容">张曼玉广告写真花絮曝光 流露优雅从容</a> <span>2012-12-10</span></li>
+
+					</ul>
+					</td>
+				</tr>
+			</table><table width="100%" border="0" cellspacing="0" cellpadding="0" class="title">
+				<tr>
+					<td><strong>体育新闻</strong></td>
+					<td align="right"><a href="/news/sports/">更多&gt;&gt;</a></td>
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+				<tr>
+					<td><ul>
+
+						<li><a href="/news/sports/2012-12-10/78.html" title="中国男乒第16次捧起斯韦思林杯">中国男乒第16次捧起斯韦思林杯</a> <span>2012-12-10</span></li>
+
+						<li><a href="/news/sports/2012-12-10/77.html" title="科比专为大场面而生">科比专为大场面而生</a> <span>2012-12-10</span></li>
+
+						<li><a href="/news/sports/2012-12-10/71.html" title="奥运圣火成功登顶珠峰">奥运圣火成功登顶珠峰</a> <span>2012-12-10</span></li>
+
+					</ul>
+					</td>
+				</tr>
+			</table><table width="100%" border="0" cellspacing="0" cellpadding="0" class="title">
+				<tr>
+					<td><strong>头条新闻</strong></td>
+					<td align="right"><a href="/news/toutiaoxinwen/">更多&gt;&gt;</a></td>
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+				<tr>
+					<td><ul>
+
+						<li><a href="/news/toutiaoxinwen/2021-04-14/79.html" title="外交部：海洋不是日本的垃圾桶，太平洋也不是日本的下水道！">外交部：海洋不是日本的垃圾桶，太平洋也不是</a> <span>2021-04-14</span></li>
+
+					</ul>
+					</td>
+				</tr>
+			</table></td>
+		<td class="sider"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="title">
+			<tr>
+				<td><strong>推荐资讯</strong></td>
+			</tr>
+		</table>
+			<table width="100%" border="0" cellspacing="8" cellpadding="0" class="box">
+				<tr>
+					<td><table width=100% border=0 cellpadding=3 cellspacing=0>
+						<tr>
+						[e:loop={'selfinfo',2,2,1}]
+							<td align=center><a href='<?=$bqsr["titleurl"]?>' target=_blank>
+							<img src='<?$bqr['titlepic']?>' width='128' height='90' border=0
+							alt='<?=$bqr['title']?>'><br><span style='line-height:15pt'><?=bqr['title']?></span></a></td>
+						[/e:loop]
+						</tr>
+						<tr>
+						[e:loop={'selfinfo','2,2',2,1}]
+							<td align=center><a href='<?=$bqsr["titleurl"]?>' target=_blank>
+								<img src='<?$bqr['titlepic']?>' width='128' height='90' border=0
+								alt='<?=$bqr['title']?>'><br><span style='line-height:15pt'><?=bqr['title']?>
+								</span></a></td>
+						[/e:loop]
+						</tr></table></td>
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="title margin_top">
+				<tr>
+					<td><strong>最后更新</strong></td>
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+				<tr>
+					<td><ul>
+					[e:loop={'selfinfo',10,0,0}]
+						<li><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"
+						><?=esub($bqr['title'],30)?></a></li>
+					[/e:loop]
+					</ul></td>
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="title margin_top">
+				<tr>
+					<td><strong>热门点击</strong></td>
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+				<tr>
+					<td><ol class="rank">
+					[e:loop={'selfinfo',10,1,0}]
+						<li class="no<?=$bqno?>"><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=esub($bqr['title'],30)?></a></li>
+					[/e:loop]
+					</ol></td>
+				</tr>
+			</table></td>
 	</tr>
-	<tr>
-[e:loop={'selfinfo','2,2',2,1}]
-		<td align=center><a href='<?=$bqsr['titleurl']?>' target=_blank><img src='<?=$bqr['titlepic']?>' width='128' height='90' border=0 alt='<?=$bqr['title']?>'><br><span style='line-height:15pt'><?=esub($bqr['title'],18)?></span></a></td>
-[/e:loop]			
-	</tr></table></td>
-</tr>
-</table>
-<table width="100%" border="0" cellspacing="0" cellpadding="0" class="title margin_top">
-<tr>
-<td><strong>最后更新</strong></td>
-</tr>
-</table>
-<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
-<tr>
-<td><ul>
-[e:loop={'selfinfo',10,0,0}]
-<li><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=esub($bqr['title'],30)?></a></li>
-[/e:loop]	
-</ul></td>
-</tr>
-</table>
-<table width="100%" border="0" cellspacing="0" cellpadding="0" class="title margin_top">
-<tr>
-<td><strong>热门点击</strong></td>
-</tr>
-</table>
-<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
-<tr>
-<td><ol class="rank">
-[e:loop={'selfinfo',10,1,0}]
-<li class="no<?=$bqno?>"><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=esub($bqr['title'],30)?></a></li>
-[/e:loop]	
-</ol></td>
-</tr>
-</table></td>
-</tr>
 </table>
 <!-- 页脚 -->
 [!--temp.footer--]
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>[!--pagetitle--]</title>
+	<meta name="keywords" content="[!--pagekey--]" />
+	<meta name="description" content="[!--pagedes--]" />
+	<link href="[!--news.url--]skin/default/css/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="[!--news.url--]skin/default/js/tabs.js"></script>
+</head>
+<body class="channle">
+<!-- 页头 -->
+[!--temp.header--]
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+	<tr valign="top">
+		<td class="news_list"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="position">
+			<tr>
+				<td>您当前的位置：<a href="/">首页</a>&nbsp;>&nbsp;<a href="/news/">新闻中心</a></td>
+			</tr>
+		</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="title">
+				<tr>
+					<td><strong>国内新闻</strong></td>
+					<td align="right"><a href="/news/china/">更多&gt;&gt;</a></td>
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+				<tr>
+					<td><ul>
+
+						<li><a href="/news/china/2012-12-10/69.html" title="广东丹霞山发现巨型"青铜剑"(组图)">广东丹霞山发现巨型&quot;青铜剑&quot;(组图)</a> <span>2012-12-10</span></li>
+
+						<li><a href="/news/china/2012-12-10/68.html" title="驻日大使崔天凯:胡锦涛主席访日有三点值得关注">驻日大使崔天凯:胡锦涛主席访日有三点值</a> <span>2012-12-10</span></li>
+
+						<li><a href="/news/china/2012-12-10/67.html" title="杭州湾跨海大桥日均车流量逾10万(组图)">杭州湾跨海大桥日均车流量逾10万(组图)</a> <span>2012-12-10</span></li>
+
+						<li><a href="/news/china/2012-12-10/66.html" title="广东省物价局：粮价节后上涨不可信">广东省物价局：粮价节后上涨不可信</a> <span>2012-12-10</span></li>
+
+						<li><a href="/news/china/2012-12-10/65.html" title="柏杨葬礼将于14日举行 骨灰抛撒绿岛海面">柏杨葬礼将于14日举行 骨灰抛撒绿岛海面</a> <span>2012-12-10</span></li>
+
+					</ul>
+					</td>
+				</tr>
+			</table><table width="100%" border="0" cellspacing="0" cellpadding="0" class="title">
+				<tr>
+					<td><strong>国际新闻</strong></td>
+					<td align="right"><a href="/news/world/">更多&gt;&gt;</a></td>
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+				<tr>
+					<td><ul>
+
+						<li><a href="/news/world/2012-12-10/72.html" title="中国紧急援助物资运抵缅甸仰光(组图)">中国紧急援助物资运抵缅甸仰光(组图)</a> <span>2012-12-10</span></li>
+
+						<li><a href="/news/world/2012-12-10/70.html" title="俄罗斯第三任总统梅德韦杰夫宣誓就职">俄罗斯第三任总统梅德韦杰夫宣誓就职</a> <span>2012-12-10</span></li>
+
+						<li><a href="/news/world/2012-12-10/15.html" title="中国紧急援助物资运抵缅甸仰光(组图)">中国紧急援助物资运抵缅甸仰光(组图)</a> <span>2012-12-10</span></li>
+
+						<li><a href="/news/world/2012-12-10/14.html" title="印度成功试射一枚“烈火－3”型导弹">印度成功试射一枚“烈火－3”型导弹</a> <span>2012-12-10</span></li>
+
+						<li><a href="/news/world/2012-12-10/13.html" title="马来红新月会宣布将向缅甸派出救灾小组">马来红新月会宣布将向缅甸派出救灾小组</a> <span>2012-12-10</span></li>
+
+					</ul>
+					</td>
+				</tr>
+			</table><table width="100%" border="0" cellspacing="0" cellpadding="0" class="title">
+				<tr>
+					<td><strong>娱乐新闻</strong></td>
+					<td align="right"><a href="/news/ent/">更多&gt;&gt;</a></td>
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+				<tr>
+					<td><ul>
+
+						<li><a href="/news/ent/2012-12-10/76.html" title="“最美清洁工”原是《赤壁》宫女">“最美清洁工”原是《赤壁》宫女</a> <span>2012-12-10</span></li>
+
+						<li><a href="/news/ent/2012-12-10/75.html" title="尹馨大胆亮相《男人装》 嫩肤美腿勾人魂">尹馨大胆亮相《男人装》 嫩肤美腿勾人魂</a> <span>2012-12-10</span></li>
+
+						<li><a href="/news/ent/2012-12-10/74.html" title="传张艺谋因执导奥运身价涨5倍">传张艺谋因执导奥运身价涨5倍</a> <span>2012-12-10</span></li>
+
+						<li><a href="/news/ent/2012-12-10/73.html" title="张曼玉广告写真花絮曝光 流露优雅从容">张曼玉广告写真花絮曝光 流露优雅从容</a> <span>2012-12-10</span></li>
+
+					</ul>
+					</td>
+				</tr>
+			</table><table width="100%" border="0" cellspacing="0" cellpadding="0" class="title">
+				<tr>
+					<td><strong>体育新闻</strong></td>
+					<td align="right"><a href="/news/sports/">更多&gt;&gt;</a></td>
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+				<tr>
+					<td><ul>
+
+						<li><a href="/news/sports/2012-12-10/78.html" title="中国男乒第16次捧起斯韦思林杯">中国男乒第16次捧起斯韦思林杯</a> <span>2012-12-10</span></li>
+
+						<li><a href="/news/sports/2012-12-10/77.html" title="科比专为大场面而生">科比专为大场面而生</a> <span>2012-12-10</span></li>
+
+						<li><a href="/news/sports/2012-12-10/71.html" title="奥运圣火成功登顶珠峰">奥运圣火成功登顶珠峰</a> <span>2012-12-10</span></li>
+
+					</ul>
+					</td>
+				</tr>
+			</table><table width="100%" border="0" cellspacing="0" cellpadding="0" class="title">
+				<tr>
+					<td><strong>头条新闻</strong></td>
+					<td align="right"><a href="/news/toutiaoxinwen/">更多&gt;&gt;</a></td>
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+				<tr>
+					<td><ul>
+
+						<li><a href="/news/toutiaoxinwen/2021-04-14/79.html" title="外交部：海洋不是日本的垃圾桶，太平洋也不是日本的下水道！">外交部：海洋不是日本的垃圾桶，太平洋也不是</a> <span>2021-04-14</span></li>
+
+					</ul>
+					</td>
+				</tr>
+			</table></td>
+		<td class="sider"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="title">
+			<tr>
+				<td><strong>推荐资讯</strong></td>
+			</tr>
+		</table>
+			<table width="100%" border="0" cellspacing="8" cellpadding="0" class="box">
+				<tr>
+					<td><table width=100% border=0 cellpadding=3 cellspacing=0>
+						<tr>
+						[e:loop={'selfinfo',2,2,1}]
+							<td align=center><a href='<?=$bqsr["titleurl"]?>' target=_blank>
+							<img src='<?$bqr['titlepic']?>' width='128' height='90' border=0
+							alt='<?=$bqr['title']?>'><br><span style='line-height:15pt'><?=bqr['title']?></span></a></td>
+						[/e:loop]
+						</tr>
+						<tr>
+						[e:loop={'selfinfo','2,2',2,1}]
+							<td align=center><a href='<?=$bqsr["titleurl"]?>' target=_blank>
+								<img src='<?$bqr['titlepic']?>' width='128' height='90' border=0
+								alt='<?=$bqr['title']?>'><br><span style='line-height:15pt'><?=bqr['title']?>
+								</span></a></td>
+						[/e:loop]
+						</tr></table></td>
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="title margin_top">
+				<tr>
+					<td><strong>最后更新</strong></td>
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+				<tr>
+					<td><ul>
+					[e:loop={'selfinfo',10,0,0}]
+						<li><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"
+						><?=esub($bqr['title'],30)?></a></li>
+					[/e:loop]
+					</ul></td>
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="title margin_top">
+				<tr>
+					<td><strong>热门点击</strong></td>
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+				<tr>
+					<td><ol class="rank">
+					[e:loop={'selfinfo',10,1,0}]
+						<li class="no<?=$bqno?>"><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=esub($bqr['title'],30)?></a></li>
+					[/e:loop]
+					</ol></td>
+				</tr>
+			</table></td>
+	</tr>
+</table>
+<!-- 页脚 -->
+[!--temp.footer--]
+
 </body>
 </html>

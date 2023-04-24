@@ -46,13 +46,13 @@
 </table></td>
 <td class="content"><table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr>
-  <td> 
+  <td>
     <!-- 焦点图片，调用默认模型带标题图片的头条信息 -->
 		<!--swiper页面结构-->
 		<div class="swiper-container" style="width: 450px;height: 255px;">
 		    <div class="swiper-wrapper">		    	
 		        [e:loop={2,3,12,1}]
-		        <div class="swiper-slide">
+		        <div class="sw7iper-slide">
 		        	<a href="<?=$bqsr['titleurl']?>"><img src="<?=$bqr['titlepic']?>" width="450" height="255"/></a>
 		        </div>
 		        [/e:loop]		       
@@ -63,8 +63,8 @@
 			
 			//初始化一个Swiper实例    new Swiper(swiper容器, 个性化配置)
 		  var mySwiper = new Swiper ('.swiper-container', {
-				loop:true,  //开启环路，会在项目前后复制各一个,让Swiper看起来是循环的,默认为false
-				autoplay:true,  //开启自动切换，默认为false
+				loop:true,//开启环路，会在项目前后复制各一个,让Swiper看起来是循环的,默认为false
+			  	autoplay:true,
 		  })        
 		</script>
  </td>
@@ -193,7 +193,7 @@
 </table>
 <ul>
 [e:loop={34,7,0,0}]  	
-    <li><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=esub($bqr['title'],26)?></a></li>
+    <li><a href="<?=$bqsr['titleurl']?>" title="<?=$bqr['title']?>"><?=esub($bqr['title'],28)?></a></li>
 [/e:loop]     
             </ul></td>
 <td width="50%"><table width="100%" border="0" cellpadding="0" cellspacing="0" class="news_title">
